@@ -1,0 +1,4 @@
+interface:
+  display_name: "验证码协议逆向"
+  short_description: "还原滑块、点选、文字点选验证码协议。"
+  default_prompt: "使用 $captcha-reverse 将这个验证码请求链还原成本地协议脚本。"

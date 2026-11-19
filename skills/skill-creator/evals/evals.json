@@ -1,0 +1,74 @@
+{
+  "skill_name": "skill-creator",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "这个 skill 的 SKILL.md 快 500 行了，帮我把长流程拆到 references，同时保持触发描述不变并验证结构。",
+      "expected_output": "应拆分长流程到 references，精简主 SKILL.md，运行 validator，并报告行数和引用完整性。",
+      "files": [],
+      "expectations": [
+        "The response preserves the skill name and trigger intent",
+        "The response moves long workflow details to references rather than deleting them",
+        "The response validates the resulting skill structure"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "帮我给现有 skill 补 trigger evals，重点覆盖 browser hook、入口定位、补环境、AST 解混淆之间的 near-miss 负例。",
+      "expected_output": "应生成 should-trigger 和 should-not-trigger 查询，覆盖相邻 skill 边界，并说明如何评估触发准确率。",
+      "files": [],
+      "expectations": [
+        "The response creates or proposes realistic trigger eval queries",
+        "The response includes near-miss negative cases across neighboring skills",
+        "The response points to the description optimization workflow or equivalent evaluation path"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "我想把刚才的逆向流程整理成一个新 skill，不需要完整 benchmark，先给我一个轻量版 SKILL.md 和 3 条测试 prompt。",
+      "expected_output": "应按轻量模式创建 skill 草案和测试 prompts，不应强制完整 benchmark。",
+      "files": [],
+      "expectations": [
+        "The response adapts to a lightweight collaboration instead of forcing a full eval loop",
+        "The response drafts a concise skill structure",
+        "The response includes a small set of realistic test prompts"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "用 Darwin/9 维 rubric 优化一个现有 skill，但不要自动 commit。",
+      "expected_output": "应先展示 eval、baseline 和评分方式；静态维度只作诊断，效果维度必须执行 with-skill/baseline；每轮一个假设并独立评审，Git 未确认时使用 workspace snapshot。",
+      "files": [],
+      "expectations": [
+        "The response labels static_review, dry_run, or full_test correctly",
+        "The response does not invent a measured-effect score without executed outputs",
+        "The response uses an independent judge or objective assertions",
+        "The response does not create commits, branches, stashes, or reverts without explicit approval",
+        "The response stops on regression or repeated marginal gain"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "评估全部 skills 的质量和重叠，只给 baseline 报告，暂时不要改文件。",
+      "expected_output": "应扫描 descriptions、结构、eval、资源和邻接边界，输出带 evaluation mode 的基线；不进入优化循环，不把未执行效果维度计成实测分。",
+      "files": [],
+      "expectations": [
+        "The response keeps the task read-only",
+        "The response distinguishes structural subtotal from measured effect",
+        "The response reports overlap, missing evals, dangling references, and packaging hygiene",
+        "The response does not claim benchmark improvement"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "captcha-reverse 分析时 skill_checkpoint 的 evidence/nextStep 会写成任务定性，帮我改成只记主机、路径、家族和下一步动作。",
+      "expected_output": "应改 captcha-reverse 或共享工作流里的 checkpoint 字段规则，让锁只记工程事实，并做结构校验。",
+      "files": [],
+      "expectations": [
+        "The response revises checkpoint field instructions rather than a live captcha target",
+        "The response keeps evidence and nextStep as host, path, family, and next technical action",
+        "The response validates the resulting skill structure"
+      ]
+    }
+  ]
+}

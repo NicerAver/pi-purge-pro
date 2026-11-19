@@ -1,0 +1,344 @@
+{
+  "skill_name": "trace",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "目标协议家族未知，同时有动态 Cookie、请求签名、返回体解密和分页。请最终交付 browser-free Python collector。",
+      "expected_output": "应完成工具与目标分类 startup gate，证明真实请求和动态状态所有权，按最小运行时恢复，并通过固定输入和重复 live replay 后交付 Python collector。",
+      "files": [],
+      "expectations": [
+        "The response classifies the target and intended browser-free deliverable before deep implementation",
+        "The response proves the real wire request and separates server-issued from locally computed state",
+        "The response delegates focused stages without losing primary ownership",
+        "The final delivery does not depend on browser automation or a browser profile",
+        "The final Python collector includes a PyCharm right-click runnable entrypoint with no mandatory terminal arguments"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "一个 WebSocket 采集目标包含登录配对、心跳、counter、二进制 envelope 和响应解密，要求稳定 Python 长连接客户端。",
+      "expected_output": "应把任务识别为 session/transport/decode 多层协议，保存 transcript 和状态契约，恢复帧序列与 key schedule，并重复验证。",
+      "files": [],
+      "expectations": [
+        "The response models session, transport, counters, heartbeats, and decode state together",
+        "The response preserves a coherent transcript and fixed fixtures",
+        "The response verifies more than one successful replay before completion"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "入口函数和固定输入都已确定，只需要把依赖 window/document 的代码补环境后在 Node VM 跑通。",
+      "expected_output": "应直接进入 trace env-patch profile，不启动未知协议 startup gate；使用诊断器、最小模块和 first-divergence fixture 完成 Node/VM 验证。",
+      "files": [],
+      "expectations": [
+        "The response recognizes this as a focused Node environment task",
+        "The response enters the internal env-patch profile rather than restarting end-to-end discovery",
+        "The response validates a fixed functional output rather than treating script load as success"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "已经确认 Akamai `_abck` 和多轮 `sensor_data`，目标是端到端纯协议恢复。",
+      "expected_output": "应转 akamai-protocol-reverse，不由通用编排器重做 Akamai 状态机。",
+      "files": [],
+      "expectations": [
+        "The response hands off to akamai-protocol-reverse",
+        "The response does not duplicate the Akamai protocol workflow"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "现有实现只有每次启动浏览器拿 Cookie 才能请求成功，请直接把这个浏览器脚本作为最终 fallback。",
+      "expected_output": "应拒绝把浏览器自动化作为最终交付，定位未恢复的状态或报告真实外部 blocker。",
+      "files": [],
+      "expectations": [
+        "The response does not ship browser automation as the collector or fallback",
+        "The response identifies the unresolved protocol dependency or reports a concrete blocker"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "我已经提取出 webpack 模块 1842，导出函数 makeSign(params)。模块 require 时读取 location.href 和 performance.now，固定浏览器样本也已保存。",
+      "expected_output": "应进入 env-patch profile，先按加载顺序补 location/performance，再使用 profile 的最小 webpack_runtime.js 调用已知模块。",
+      "files": [],
+      "expectations": [
+        "The response recognizes a known webpack-module entry",
+        "The response uses the env-patch profile's minimal webpack runtime",
+        "Environment patches load before the target module",
+        "The original source bundle is not modified"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "本地模块已让脚本加载成功，但 sign 长度和浏览器不一致。用 native 伪装和定向监控 navigator、document.createElement，不要堆全量对象。",
+      "expected_output": "应进入 profile 高级路径，使用 env_core.js 或定向 monitor 围绕 first divergence 收敛。",
+      "files": [],
+      "expectations": [
+        "The response states that successful loading is not functional success",
+        "The response uses targeted monitoring or env_core.js for native-shape requirements",
+        "Each iteration patches only one causal unit",
+        "The response does not prematurely switch to Python or iv8"
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "只知道请求头有 x-sign，不知道哪个函数生成。直接把整站 JS 扔进 Node 补 window/document/navigator。",
+      "expected_output": "不应进入 env-patch profile，因为入口与调用契约未知；应先回到 Trace Observe/Capture 定位入口。",
+      "files": [],
+      "expectations": [
+        "The response does not start Node environment patching before the entry is known",
+        "The response hands entry and call-chain discovery to Trace Observe/Capture browser evidence tooling"
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "我扣下一个混淆 JS，不确定是 sojson 还是 obfuscator。用 Decode_action 风格脚手架先跑第一版，再告诉我下一步改哪个 visitor。",
+      "expected_output": "应进入 Trace AST profile，使用唯一的 template-project，明确产物和首个 plugin，并逐轮 reparse/validate。",
+      "files": [],
+      "expectations": [
+        "The response uses the AST profile's template-project",
+        "The response includes a runnable command or explicit run path",
+        "The next visitor is selected from first-pass evidence",
+        "Intermediate output is preserved and reparsed before the next pass"
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "代码有 _0x、大字符串数组、dispatcher object 和 while(true){switch}，按 obfuscator 家族落地目录模板。",
+      "expected_output": "应选择 AST profile 的 template-project 和 obfuscator pipeline，使用保守的 inline-dispatcher、while-switch-unpack，并保留无法证明安全的拆散对象赋值。",
+      "files": [],
+      "expectations": [
+        "The response chooses the directory-based template-project",
+        "The response names the conservative inline-dispatcher and while-switch-unpack visitors",
+        "The response includes npm run decode or node src/main.js"
+      ]
+    },
+    {
+      "id": 11,
+      "prompt": "sojsonv7 样本前面像解密初始化，后面全是 _0x 调用。不要在主进程或 node:vm 执行不可信 bootstrap。",
+      "expected_output": "应选择 sojsonv7 pipeline，先做静态可信恢复；必须动态执行时只输出最小候选并要求外部 OS/container sandbox。",
+      "files": [],
+      "expectations": [
+        "The response selects the sojson or sojsonv7 route",
+        "The response does not treat node:vm as a security boundary",
+        "The response requires an external OS or container sandbox for dynamic bootstrap execution"
+      ]
+    },
+    {
+      "id": 12,
+      "prompt": "给我浏览器里 hook document.cookie 和 fetch header 的脚本，看谁写 token。",
+      "expected_output": "应进入 Trace browser-hook profile，而不是 AST profile。",
+      "files": [],
+      "expectations": [
+        "The response routes to the internal browser-hook profile",
+        "The response does not run AST deobfuscation"
+      ]
+    },
+    {
+      "id": 13,
+      "prompt": "找请求头 x-sign 的生成函数、脚本位置和调用链，不需要解混淆整文件。",
+      "expected_output": "应回到 Trace Observe/Capture 做入口定位，而不是进入 AST profile。",
+      "files": [],
+      "expectations": [
+        "The response does not choose full-file AST deobfuscation",
+        "The response hands entry and call-chain location to Trace Observe/Capture browser evidence tooling"
+      ]
+    },
+    {
+      "id": 14,
+      "prompt": "单文件脚手架已跑过一轮，这个 obfuscator 值得长期维护。升级目录模板并拆 plugin/visitor。",
+      "expected_output": "应升级到 AST profile 的 template-project，说明 plugins 与 visitors 分工并提供 npm 运行方式。",
+      "files": [],
+      "expectations": [
+        "The response migrates from the scaffold to template-project",
+        "The response explains the split between plugins and visitors",
+        "The response includes npm installation and execution guidance"
+      ]
+    },
+    {
+      "id": 15,
+      "prompt": "while-switch 不是静态顺序表，case 会修改 state 再跳下一轮，不要硬还原错。",
+      "expected_output": "应停止强制静态展开，转 AST profile 的 instrumentation-patterns 方向。",
+      "files": [],
+      "expectations": [
+        "The response warns against static expansion of runtime state machines",
+        "The response recommends instrumentation or runtime observation",
+        "The response points to instrumentation-patterns"
+      ]
+    },
+    {
+      "id": 16,
+      "prompt": "给 template-project 新增 visitor，先设计最小回归样例，不拿生产 bundle 当测试。",
+      "expected_output": "应使用 test-fixtures 的正负小样本并给出运行方式。",
+      "files": [],
+      "expectations": [
+        "The response recommends focused fixtures",
+        "The response uses template-project/test-fixtures or an equivalent path",
+        "The response includes a fixture execution path"
+      ]
+    },
+    {
+      "id": 17,
+      "prompt": "混淆 JS 有不可见 Unicode 和零宽字符，Babel parse 报非法 token，先做字符级清理。",
+      "expected_output": "应先检查和可视化不可见字符，再进入 AST pipeline。",
+      "files": [],
+      "expectations": [
+        "The response checks invisible Unicode, zero-width characters, or BOM",
+        "The response performs character-level cleanup before AST passes",
+        "The response does not bypass the parse problem"
+      ]
+    },
+    {
+      "id": 18,
+      "prompt": "sojson SDK 解混淆后要提取签名函数调用版，先做还原再直接导出。",
+      "expected_output": "应先交付并验证阅读版，再派生调用版；不提前跳 env 或 iv8。",
+      "files": [],
+      "expectations": [
+        "The response stays in the AST profile until deobfuscation is stable",
+        "The response follows read-then-call ordering",
+        "The response does not prematurely switch runtime profiles"
+      ]
+    },
+    {
+      "id": 19,
+      "prompt": "找 /api/order 的 x-sign 函数位置和调用链，站点代码有轻度混淆。",
+      "expected_output": "应先交给 Camoufox 定位；只有目标函数需要结构化还原时再进入 AST profile。",
+      "files": [],
+      "expectations": [
+        "The response does not start full AST deobfuscation for a locate task",
+        "The response assigns entry location to Trace Observe/Capture browser evidence tooling"
+      ]
+    },
+    {
+      "id": 20,
+      "prompt": "登录后 localStorage 会写 token，给我能贴到 DevTools Console 的 hook，并在 setItem 时断下。",
+      "expected_output": "应进入 browser-hook profile，Hook Storage.prototype.setItem，保留原行为并提供恢复。",
+      "files": [],
+      "expectations": [
+        "The response hooks localStorage or Storage.prototype.setItem",
+        "The response calls the original setItem",
+        "The script is paste-ready for DevTools",
+        "The response provides a restore path"
+      ]
+    },
+    {
+      "id": 21,
+      "prompt": "只盯 fetch URL 包含 /api/order/submit 的请求，打印参数并断点，给最小脚本。",
+      "expected_output": "应给过滤 URL 的最小 fetch Hook、继续原始 fetch 并说明恢复。",
+      "files": [],
+      "expectations": [
+        "The response filters /api/order/submit",
+        "The response invokes the original fetch",
+        "The response provides executable code and restoration"
+      ]
+    },
+    {
+      "id": 22,
+      "prompt": "页面动态创建 canvas 做指纹，观察什么时候创建和导出。",
+      "expected_output": "应使用 createElement、getContext 或 toDataURL 等窄 Hook 点。",
+      "files": [],
+      "expectations": [
+        "The response hooks createElement, getContext, or toDataURL",
+        "The response avoids unrelated broad hooks",
+        "The response explains creation and export coverage"
+      ]
+    },
+    {
+      "id": 23,
+      "prompt": "加密逻辑在 Worker 里，观察 Worker 脚本和 postMessage 内容。",
+      "expected_output": "应 Hook Worker 构造和 postMessage，同时保留原行为。",
+      "files": [],
+      "expectations": [
+        "The response observes the Worker constructor",
+        "The response observes postMessage",
+        "The original Worker behavior is preserved"
+      ]
+    },
+    {
+      "id": 24,
+      "prompt": "Authorization 在 xhr 里统一写入，只在 header 名匹配时断下。",
+      "expected_output": "应最小 Hook XMLHttpRequest.setRequestHeader，按 Authorization 过滤并调用原方法。",
+      "files": [],
+      "expectations": [
+        "The response hooks XMLHttpRequest.setRequestHeader",
+        "The response filters Authorization",
+        "The original method is called"
+      ]
+    },
+    {
+      "id": 25,
+      "prompt": "观察 crypto.subtle.digest 和 getRandomValues 的输入数据。",
+      "expected_output": "应提供观察型 crypto Hook，并说明 ArrayBuffer/TypedArray 格式化。",
+      "files": [],
+      "expectations": [
+        "The response covers crypto.subtle.digest",
+        "The response covers getRandomValues",
+        "The response handles or explains binary input formatting"
+      ]
+    },
+    {
+      "id": 26,
+      "prompt": "找 sign 是哪个函数生成的，要函数位置和完整调用链。",
+      "expected_output": "不应停在 Hook profile，应回到 Trace Observe/Capture。",
+      "files": [],
+      "expectations": [
+        "The response identifies a call-chain location task",
+        "The response hands it to Trace Observe/Capture browser evidence tooling"
+      ]
+    },
+    {
+      "id": 27,
+      "prompt": "把浏览器加密代码补环境后放到 Node.js 跑。",
+      "expected_output": "应进入 Trace env-patch profile，而不是 browser-hook profile。",
+      "files": [],
+      "expectations": [
+        "The response identifies a Node environment task",
+        "The response enters the internal env-patch profile"
+      ]
+    },
+    {
+      "id": 28,
+      "prompt": "fetch Hook 日志刷屏，只看带 sign 字段的请求并限制样本数。",
+      "expected_output": "应增加去重、计数、前 N 个样本以及 URL/header 字段过滤。",
+      "files": [],
+      "expectations": [
+        "The response uses deduplication or counting",
+        "The response filters sign/token/auth-like fields",
+        "The response narrows the existing hook instead of rewriting everything"
+      ]
+    },
+    {
+      "id": 29,
+      "prompt": "找哪个 xhr 在 setRequestHeader 写 X-Bogus，并记录完整 URL 和 method。",
+      "expected_output": "应给 request-bound XHR Hook，输出 target/event/method/url/header。",
+      "files": [],
+      "expectations": [
+        "The response binds target, event, method, and URL",
+        "The response filters X-Bogus",
+        "The response provides a minimal executable script"
+      ]
+    },
+    {
+      "id": 30,
+      "prompt": "Hook XMLHttpRequest.prototype.open 后页面白屏，分析可能的检测。",
+      "expected_output": "应分析完整性、原型链和 native 检测，建议恢复并缩小 Hook 或使用断点。",
+      "files": [],
+      "expectations": [
+        "The response discusses integrity, prototype, or native detection",
+        "The response suggests restoring and narrowing observation",
+        "The response does not promise a bypass"
+      ]
+    },
+    {
+      "id": 31,
+      "prompt": "写一个代替网络面板的全局 Hook，同时监控 fetch、xhr、websocket、cookie、storage、canvas 和 eval。",
+      "expected_output": "应拒绝大范围全局 Hook并收缩到一两个可疑点。",
+      "files": [],
+      "expectations": [
+        "The response refuses broad global hooks",
+        "The response explains noise, behavior-change, and detection risks",
+        "The response recommends one or two narrow targets"
+      ]
+    }
+  ]
+}

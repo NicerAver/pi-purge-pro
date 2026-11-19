@@ -1,0 +1,98 @@
+[
+  {
+    "query": "用 NV8 跑这个站点的签名 JS，我已经把 bundle 存到本地了，要拿到 x-sign 和最终的请求体。",
+    "should_trigger": true
+  },
+  {
+    "query": "这次用 NV8 补环境，不要用浏览器，目标脚本会读 canvas 和 WebGL，我要在 Node 里原样跑它。",
+    "should_trigger": true
+  },
+  {
+    "query": "帮我用 NV8 起一个 EdgeSandbox，把目标 bundle 跑起来并把签名产物取出来。",
+    "should_trigger": true
+  },
+  {
+    "query": "签名已经恢复好了，现在要落成一个能长期跑的 Node 采集管线，要分页、限流、断点续采和去重落库。",
+    "should_trigger": true
+  },
+  {
+    "query": "用 NV8 做离线确定性回放：把目标脚本的 fetch 全部走 replay，不要出网，固定输入要能重复出同一个签名。",
+    "should_trigger": true
+  },
+  {
+    "query": "指纹敏感目标，帮我在 NV8 里切到 Edge 152 profile 并确认 navigator 和 UA-CH 读出来对不对。",
+    "should_trigger": true
+  },
+  {
+    "query": "用 NV8 的 Agent Session，先 compareEnvironment 验证 screen 假设，确认后再 applyEnvironmentPatch 落地。",
+    "should_trigger": true
+  },
+  {
+    "query": "我需要把指标做成常驻签名服务，用 NV8 的 stdio JSON-RPC 桥对外提供签名。",
+    "should_trigger": true
+  },
+  {
+    "query": "目标站点的签名逻辑藏在 WebAssembly 里，我只要把 wasm 和入口函数位置找出来，先别写复现脚本。",
+    "should_trigger": false
+  },
+  {
+    "query": "用 Python + iv8 补环境跑这段 JS，最后交付一个 requests 脚本，顶部写死 UA 和 PAGE_URL。",
+    "should_trigger": false
+  },
+  {
+    "query": "用 Edge MCP 打开这个页面，抓一下 XHR 的调用栈和请求头，我要看真实浏览器的完整网络证据。",
+    "should_trigger": false
+  },
+  {
+    "query": "这个站有滑块验证码，要完整复现 challenge 到 verify 的协议链，包括轨迹和 w 参数。",
+    "should_trigger": false
+  },
+  {
+    "query": "帮我确认这个站是不是 Akamai，看到 _abck 和 sensor_data，要做纯协议端到端恢复。",
+    "should_trigger": false
+  },
+  {
+    "query": "微信小程序里有个接口要签名，用 WMPFDebugger 连上去看看请求和调用栈。",
+    "should_trigger": false
+  },
+  {
+    "query": "帮我把这个混淆的 JS 还原成可读的 AST，去掉控制流平坦化，先不跑也不补环境。",
+    "should_trigger": false
+  },
+  {
+    "query": "页面渲染出来是空的，等元素出现再点一下按钮并截图给我看。",
+    "should_trigger": false
+  },
+  {
+    "query": "我要训练一个验证码图片识别模型，用 YOLOv8 做 nine 宫格点选，导出 ONNX。",
+    "should_trigger": false
+  },
+  {
+    "query": "用 NV8 把这个已恢复的协议接上 Collector，配置 allowedOrigins 白名单后发真实请求验证，并把结果落成 NDJSON。",
+    "should_trigger": true
+  },
+  {
+    "query": "NV8 的 EdgeSandbox.create() 一直报 Sandbox evaluation exceeded the 5000ms wall-clock timeout，怎么解决？",
+    "should_trigger": true
+  },
+  {
+    "query": "我只要一段能执行的 Node 脚本把目标 JS 跑出签名，不要浏览器也不要 Python。",
+    "should_trigger": true
+  },
+  {
+    "query": "帮我把这个 Node 项目的依赖升级到最新版本，顺便修一下 lint 报错。",
+    "should_trigger": false
+  },
+  {
+    "query": "用 NV8 的 artifact 和 protocol adapter 把签名做成 RequestPlan，确认 adapter 拿不到网络能力。",
+    "should_trigger": true
+  },
+  {
+    "query": "帮我查一下这个签名算法的原理，给我一篇分析文档，不需要可运行的复现。",
+    "should_trigger": false
+  },
+  {
+    "query": "用 NV8 的 watchApis 和 openInspector 在子进程里下断点，定位签名入口。",
+    "should_trigger": true
+  }
+]

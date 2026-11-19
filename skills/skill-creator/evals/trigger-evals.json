@@ -1,0 +1,94 @@
+[
+  {
+    "query": "我想把我们刚才那套逆向工作流整理成一个 opencode skill，顺手帮我补测试 prompts",
+    "should_trigger": true
+  },
+  {
+    "query": "这个 skill 触发不太准，帮我优化 description，再加一组 evals 看看改完是不是更稳定",
+    "should_trigger": true
+  },
+  {
+    "query": "帮我清理一下现有 skill 结构，拆 references 并补 benchmark 所需的测试样例",
+    "should_trigger": true
+  },
+  {
+    "query": "把当前所有 skills 的触发边界检查一遍，看看哪里重叠了，然后帮我做一轮小幅微调",
+    "should_trigger": true
+  },
+  {
+    "query": "我想把现在这套‘先找入口、再补环境、最后验证’的流程沉淀成一个 skill，顺手补几条 near-miss evals 测它会不会乱触发",
+    "should_trigger": true
+  },
+  {
+    "query": "这个 skill 的 description 写得太宽了，老是抢 trace browser-hook profile 的活，帮我收紧触发边界并改 trigger-evals",
+    "should_trigger": true
+  },
+  {
+    "query": "帮我给这几个现有 skill 补一轮 trigger-evals，重点覆盖 near-miss 负例，再顺手看 description 要不要压短",
+    "should_trigger": true
+  },
+  {
+    "query": "用 Darwin 思路优化这个 skill，做 9 维评分、独立 judge 和 validation ratchet",
+    "should_trigger": true
+  },
+  {
+    "query": "给本地所有 skills 做质量评分和重叠审计，只出 baseline 不要先改",
+    "should_trigger": true
+  },
+  {
+    "query": "这个 skill 怎么样，帮我打分并用测试 prompt 验证它是不是真的有帮助",
+    "should_trigger": true
+  },
+  {
+    "query": "自动优化 SKILL.md，但每轮必须独立评审，没提升就保留 baseline",
+    "should_trigger": true
+  },
+  {
+    "query": "给我一个浏览器里 hook xhr header 的脚本，只在 Authorization 时断下",
+    "should_trigger": false
+  },
+  {
+    "query": "帮我定位这个 sign 参数的生成入口和调用链",
+    "should_trigger": false
+  },
+  {
+    "query": "把这段浏览器 js 补环境后放到 node 里跑起来",
+    "should_trigger": false
+  },
+  {
+    "query": "先帮我把 x-sign 的入口找出来，等流程稳定了我再考虑要不要把它做成 skill",
+    "should_trigger": false
+  },
+  {
+    "query": "用 trace 的 env-patch profile 运行已经定位入口的瑞数 JS，不是要改 skill 本身",
+    "should_trigger": false
+  },
+  {
+    "query": "我现在不是要改 skill，只是想要一段 devtools 观察脚本看看是谁写了 cookie",
+    "should_trigger": false
+  },
+  {
+    "query": "这个 bundle 全是 _0x 和字符串数组，先帮我解混淆，等弄清楚流程后我再考虑要不要沉淀成 skill",
+    "should_trigger": false
+  },
+  {
+    "query": "用达尔文进化算法优化我业务里的遗传算法参数，不涉及 OpenCode skill",
+    "should_trigger": false
+  },
+  {
+    "query": "给普通项目做代码质量评分，不修改任何 SKILL.md",
+    "should_trigger": false
+  },
+  {
+    "query": "给这个仓库做代码质量评分，找出最危险的业务 bug",
+    "should_trigger": false
+  },
+  {
+    "query": "帮我改 opencode.json 和 agent 权限，不创建或修改任何 skill",
+    "should_trigger": false
+  },
+  {
+    "query": "captcha-reverse 分析时 skill_checkpoint 的 evidence/nextStep 会写成任务定性，帮我改成只记主机、路径、家族和下一步动作",
+    "should_trigger": true
+  }
+]

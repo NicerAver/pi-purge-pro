@@ -1,0 +1,22 @@
+{
+  "cases": [
+    {
+      "query": "帮我把这个 workflow 变成新的 OpenCode skill，并加 trigger eval",
+      "expected_skill": "skill-creator",
+      "not_expected_skills": ["customize-opencode"],
+      "reason": "Creating or evaluating skills belongs to skill-creator."
+    },
+    {
+      "query": "做一次 OpenCode skill-set audit：检查触发边界、description 和 eval 覆盖，先只给评估计划，不运行基准",
+      "expected_skill": "skill-creator",
+      "not_expected_skills": ["customize-opencode"],
+      "reason": "Skill-set audit and description optimization belong to skill-creator."
+    },
+    {
+      "query": "修改 opencode.json 的 MCP 配置和 agent 权限，不新增、不优化也不修改任何 skill",
+      "expected_skill": "customize-opencode",
+      "not_expected_skills": ["skill-creator"],
+      "reason": "OpenCode configuration without skill-definition changes belongs to the built-in customize-opencode skill."
+    }
+  ]
+}

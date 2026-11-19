@@ -1,0 +1,62 @@
+[
+  {
+    "query": "我有一批极验 GT4 nine 九宫格图片和 ques_*.png，想训练 YOLOv8 分类模型输出 best.pt，并统计 fresh challenge 通过率",
+    "should_trigger": true,
+    "reason": "GT4 nine image-recognition model training and fresh visual validation"
+  },
+  {
+    "query": "GT4 icon 点选背景图和三个提示图标都保存好了，帮我训练 detect 模型，再做 pair ranker 和 assignment ranker",
+    "should_trigger": true,
+    "reason": "GT4 icon detector plus ranking model workflow"
+  },
+  {
+    "query": "没有人工标注集，想用 Chinese-CLIP 给验证码图标做伪标注，然后微调本地识别模型",
+    "should_trigger": true,
+    "reason": "captcha image pseudo-labeling and model fine-tuning"
+  },
+  {
+    "query": "把现有 GT4 icon 的 best.pt 导出 ONNX，并做同图 parity 和 fresh 50 轮验收，看成功率有没有掉",
+    "should_trigger": true,
+    "reason": "ONNX export with visual-model parity and fresh validation"
+  },
+  {
+    "query": "PyCharm 右键运行 main.py 太慢，帮我分析验证码识别流程的冷启动、模型推理和排序耗时",
+    "should_trigger": true,
+    "reason": "local captcha recognition runtime performance tuning"
+  },
+  {
+    "query": "我有 server-oracle 成功样本和 hard negatives，想继续 active mining 提升图标点选识别成功率",
+    "should_trigger": true,
+    "reason": "server-oracle labeling, hard negatives, and active mining for captcha vision"
+  },
+  {
+    "query": "Geetest4 /load 返回 lot_number、pow_detail、payload，帮我纯 Python 生成 verify 的 w 参数",
+    "should_trigger": false,
+    "reason": "GT4 protocol, PoW, and w generation belongs to captcha-reverse"
+  },
+  {
+    "query": "极验 GT4 从 /load 到 /verify 的 AES/RSA、GCT biht、passtime 和 captcha_type 都要还原",
+    "should_trigger": false,
+    "reason": "complete GT4 protocol chain belongs to captcha-reverse"
+  },
+  {
+    "query": "腾讯滑块 TDC.getData(true) 在 Node 里返回 Err，帮我补环境并生成 cap_union_new_verify 参数",
+    "should_trigger": false,
+    "reason": "Tencent captcha protocol and TDC environment belongs to captcha-reverse"
+  },
+  {
+    "query": "我只是想用 ddddocr 找一张普通滑块缺口距离，不需要训练模型或 fresh 验收",
+    "should_trigger": false,
+    "reason": "one-off image/OCR helper task is outside captcha-vision skill scope"
+  },
+  {
+    "query": "帮我恢复网易易盾 get/check 的轨迹 data、cb、token 和业务通过后的接口回放",
+    "should_trigger": false,
+    "reason": "captcha protocol, track generation, and business replay belongs to captcha-reverse"
+  },
+  {
+    "query": "给一个普通商品图片分类项目写 YOLOv8 训练脚本，和验证码无关",
+    "should_trigger": false,
+    "reason": "general computer vision training is not captcha-specific"
+  }
+]

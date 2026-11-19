@@ -1,0 +1,147 @@
+{
+  "skill_name": "akamai-protocol-reverse",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "目标页首跳设置 _abck、bm_sz、ak_bmsc，随后随机路径 POST 两次 sensor_data。请恢复一个浏览器外 Python collector。",
+      "expected_output": "先用 chrome-devtools 与 js-reverse 建立 cookie/collector 证据，再交付同一 curl_cffi Session 加本地最小 runtime 的协议路径。",
+      "files": [],
+      "expectations": [
+        "区分主 collector 与 /akam/13 Pixel",
+        "证明两轮 sensor POST 的 cookie transition",
+        "最终请求不依赖浏览器、profile 或复制 cookie",
+        "TLS、UA、Client Hints 与 sensor 环境同代"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "已确认 Akamai collector 两轮 sensor_data 都返回 201 并连续更新 _abck，但 /api/example/refresh 返回 403；HTML 里有 routeContext=AB12。请诊断。",
+      "expected_output": "先检查业务 context、method、Referer、XHR header 和 serialization，而不是盲目重做 sensor。",
+      "files": [],
+      "expectations": [
+        "把 routeContext 识别为服务端业务状态",
+        "检查 route-local cookie 状态",
+        "不以 _abck 长度作为成功判据"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "当前目标已由 _abck、bm_sz、sensor_data POST 和 Pixel 确认为 Akamai v3。我找到一个 1.75 Go generator 和一个声称支持 v3 但没有 license 的仓库，可以直接复制到当前实现吗？",
+      "expected_output": "拒绝把 README 声明当作可用性证明，按 license、版本、primitive 完整性和 live replay 评估。",
+      "files": [],
+      "expectations": [
+        "把 1.75 标为 legacy",
+        "不复制无 license 代码",
+        "优先实时 collector 或已验证纯 port"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "目标已有 _abck 与两轮 sensor_data 证据。curl_cffi 用 chrome142，但 navigator 和 sec-ch-ua 报 Chrome 150；首页成功，业务 API 经常 H2 reset。",
+      "expected_output": "识别 transport coherence 问题并统一 TLS profile、UA、Client Hints 和 sensor major，再用有限 admission matrix 验证。",
+      "files": [],
+      "expectations": [
+        "指出跨层版本矛盾",
+        "检查显式代理与系统代理",
+        "限制重试并记录出口节奏风险"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "本地 IV8 将实时下载的 Akamai collector 的 XHR 转给 Python Session。请设计 bridge。",
+      "expected_output": "bridge 使用精确同源 URL allowlist、禁重定向、限制 method/body/request count、过滤敏感 header，并以 Python cookie jar 为唯一权威。",
+      "files": [],
+      "expectations": [
+        "禁止 collector 控制任意 URL egress",
+        "过滤 Cookie、Authorization 与 Host",
+        "限制请求数、大小、超时和重定向",
+        "记录并拒绝私网或非 HTTPS 目标"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Akamai sensor 只能在真实 Chrome 中工作，每次业务请求都必须让页面发出。请交付。",
+      "expected_output": "停止把浏览器自动化包装成协议方案，报告 browser-free delivery blocker 并继续定位缺失 host surface 或结束。",
+      "files": [],
+      "expectations": [
+        "不交付 Playwright/Selenium/CDP fallback",
+        "明确当前只达到浏览器侦察而非协议完成",
+        "列出最小下一证据或真实 blocker"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "德威 twayair 有随机 collector 和 bm_s/ak_bmsc，浏览器 Edge 能查票，脚本 sensor 200 但 chooseItinerary 403；别人给的 js_reverse_cache 含 RTX 5070 指纹。怎么修？",
+      "expected_output": "拒绝复用他人 GPU/canvas 缓存，本机重采指纹；对比浏览器多阶段 sensor body size；拉长 iv8 settle；对齐业务 form 序列化与 Edge/TLS 一致性。",
+      "files": [],
+      "expectations": [
+        "识别 bm_* 族 Akamai 证据",
+        "要求 host-local fingerprint recapture",
+        "要求 multi-stage sensor settle 而不是只发一次",
+        "业务 403 不先归因 CSRF"
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "普通 Chrome MCP 打不开 twayair，用户说 Edge 手动可以。请选择侦察浏览器并抓 choose/layer 成功包。",
+      "expected_output": "切换 js-reverse 到 Edge，headed 抓包；必要时让用户手动点查询，MCP 只监控网络。",
+      "files": [],
+      "expectations": [
+        "优先 Edge recon 而不是死磕 Chrome",
+        "导出 sensor/choose/layer 成功请求",
+        "不把侦察 cookie 注入最终协议 Session"
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "同机真实 Chrome 访问 Akamai document 是 200，但 curl_cffi 的 chrome101 到 chrome136 全是 403。项目尚未测试新版本 profile。浏览器抓包里 CPR 后有第二段 JSON sensor；本地第二段脚本零 POST，但 collector1、CPR、Auth、Session、业务 API 已连续两次 fresh session 全部成功。下一步怎么判断和收口？",
+      "expected_output": "先记录并升级 curl_cffi、枚举实际 BrowserType、测试最新 profile 与匹配 UA/Client-Hints/sensor UA；若新 profile 通过则归类为 profile 代际 admission。第二段零 POST只能依据两次 fresh 业务成功标为当前路径非门禁，同时保留分支证据，不强造请求。",
+      "files": [],
+      "expectations": [
+        "不在测试最新已安装 profile 前归因 egress reputation",
+        "要求 TLS、UA、Client Hints 与 sensor UA profile-coherent",
+        "用重复 fresh 业务成功而不是脚本无错误证明缺失阶段当前非门禁",
+        "动态 CPR URL 优先，捕获的随机 URL 只在无实时发现时 fallback",
+        "runner input/output 使用唯一 run id 避免阶段串线"
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "目标已有 _abck、bm_sz、随机 collector 和 sensor POST 201 证据。业务 API 返回 428，body 含 sec-cp-challenge、provider=crypto、token、timestamp、nonce、difficulty、count、timeout、verify_url，sec_cpt 为 flag 1。请完成浏览器外 Python + 本地 IV8 链路。",
+      "expected_output": "停止追加 collector pass，捕获 accepted verifier 链并恢复动态逐轮 PoW；按当前 descriptor 为 count 个 answer 分别求 difficulty+index 的有效 proof，匹配 worker cadence，完成 sec_cpt 1 -> 2 -> 3 后重放业务请求。",
+      "files": [],
+      "expectations": [
+        "把 collector 与 crypto verifier 识别为两个独立状态机",
+        "每轮使用当前 timestamp、nonce、token、count 与动态 verify_url",
+        "要求 count 个 answer 全部逐项验证，而不是一个 proof 加随机填充",
+        "不把中间 HTTP 200、next token 或 difficulty 下降当作最终成功",
+        "要求最终 verifier、cp verification、sec_cpt 1 -> 2 -> 3 和业务 replay"
+      ]
+    },
+    {
+      "id": 11,
+      "prompt": "目标历史上已确认 _abck/sensor_data。今天 Python 业务请求 curl (92)，同出口 fresh Edge 的 offer、location、search 等多个 API 也统一 ERR_HTTP2_PROTOCOL_ERROR，但 document 和 CDN 正常；一个长期使用的浏览器 profile 仍能看到旧页面数据。是否应重写 sensor 或归因 IP？",
+      "expected_output": "记录为上游/API 事件或 shared fresh-session admission 候选，保留证据并延后 retest；持久 profile 与 fresh state 不可直接比较，不应仅凭该现象重写 sensor、PoW 或断言 IP。",
+      "files": [],
+      "expectations": [
+        "使用同出口 fresh 浏览器而不是长期 profile 作为对照",
+        "识别多个 API endpoint 同时 H2 error 的事件级信号",
+        "不把 transport error 单独当作 Akamai 或 PoW 证据",
+        "暂停高频重试并在服务恢复后做 fresh replay"
+      ]
+    },
+    {
+      "id": 12,
+      "prompt": "已确认 Akamai SBSD/CPR：业务返回 {\"cpr_chlge\":\"true\",\"t\":\"612819139\"}，首页给 bm_so，HTML 下发 /x/y/z.js?v=abc&t=612819139，浏览器 POST JSON {\"body\":\"...\"} 后 Set-Cookie: bm_sc=2~1~...。请恢复浏览器外 Python 协议。",
+      "expected_output": "按 SBSD body/VMP 分支保存当前 script URL 和 v/t，暂停 POST 获取 ver/signals/perf/s/tid，建立动态 key 到稳定语义模板，恢复 timestamp、bm_so_hash 和 signal_integrity_hash 的 key115 三阶段计算；用当前 v 做 body 加密，确认 bm_sc/sbsd_c 通过态后在同一 Python Session replay 业务接口。",
+      "files": [],
+      "expectations": [
+        "把 cpr_chlge、动态 script、JSON body POST、bm_so 到 bm_sc 识别为 SBSD/CPR 二验",
+        "说明最终 POST 可能只保留 t，但 body 加密仍依赖 script v",
+        "要求识别 timestamp_ms、bm_so_hash、signal_integrity_hash 三个动态 key",
+        "用 key115/VMP 三阶段而不是硬编码第 115 个字段",
+        "把 2~1/4~1 仅当 SBSD 通过证据，最终以同 session 业务 replay 为准"
+      ]
+    }
+  ]
+}

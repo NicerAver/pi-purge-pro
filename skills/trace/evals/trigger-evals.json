@@ -1,0 +1,286 @@
+[
+  {
+    "query": "给你目标页和抓包，保护链同时有 bootstrap cookie、动态 sign、响应解密和分页，帮我最终做成脱离浏览器的 Python 采集器",
+    "should_trigger": true
+  },
+  {
+    "query": "这个站的防护类型还不确定，我只有首页、API URL 和两个变化请求样本，目标是完整还原协议并持续采集",
+    "should_trigger": true
+  },
+  {
+    "query": "GraphQL 请求外面还有二进制 envelope，响应也压缩加密，帮我恢复端到端 collector",
+    "should_trigger": true
+  },
+  {
+    "query": "WebSocket 登录、配对、心跳、counter 和消息解密都有关联，最终要 Python 长连接采集器",
+    "should_trigger": true
+  },
+  {
+    "query": "接口既有 WASM signer 又有服务端下发的刷新状态，响应还是密文，帮我做 browser-free Python 方案",
+    "should_trigger": true
+  },
+  {
+    "query": "页面数据显示正常但 API 是 decoy，翻页又切换到另一个路由，帮我找真实请求并交付完整爬虫",
+    "should_trigger": true
+  },
+  {
+    "query": "我有一份 HAR、Cookie 变化记录和混淆 JS，协议家族未知，要求恢复请求、会话和响应解析全过程",
+    "should_trigger": true
+  },
+  {
+    "query": "目标先被 TLS/HTTP2 admission 拦截，通过后还有签名和返回体解码，帮我分层还原并写 Python collector",
+    "should_trigger": true
+  },
+  {
+    "query": "登录、列表、详情、下载四条路由共享一套动态状态，我要一个能重复运行和自动刷新的纯协议采集器",
+    "should_trigger": true
+  },
+  {
+    "query": "浏览器里已经抓到一些证据，但现在要彻底去掉 Playwright 依赖，补齐 cookie provenance、sign 和 replay",
+    "should_trigger": true
+  },
+  {
+    "query": "这个未知挑战需要先执行 bootstrap，之后请求参数和响应解码又各有一层，请按证据链完整恢复",
+    "should_trigger": true
+  },
+  {
+    "query": "帮我修复现有采集器：首请求偶尔成功，但刷新状态、分页和响应字段经常错，保护家族还没确认",
+    "should_trigger": true
+  },
+  {
+    "query": "给我一段 DevTools Console hook，只观察谁写了 x-sign header",
+    "should_trigger": true
+  },
+  {
+    "query": "这个 _0x 文件帮我用 Babel AST 展开字符串数组和 while-switch，保留中间产物",
+    "should_trigger": true
+  },
+  {
+    "query": "入口 window.sdk.sign 和调用参数已确定，同输入浏览器 sign 的长度前缀也已保存，帮我补 document、navigator 后在 Node VM 跑通",
+    "should_trigger": true
+  },
+  {
+    "query": "已经确定用 Python + iv8 跑 h5st，按 bundled case 给我紧凑脚本",
+    "should_trigger": false
+  },
+  {
+    "query": "我明确说补环境用 iv8，入口和固定样本都在，先按 iv8 skill 执行，不要走 Trace 的 Node/VM env-patch。",
+    "should_trigger": false
+  },
+  {
+    "query": "已确认 Akamai Bot Manager，目标是恢复 _abck 多轮 sensor_data 和业务请求",
+    "should_trigger": false
+  },
+  {
+    "query": "已确认 Imperva Reese84，需要 Python+iv8 动态生成 reese84 Cookie 并回放业务接口",
+    "should_trigger": false
+  },
+  {
+    "query": "这是极验 GT4 滑块，帮我恢复 load 到 verify 的图片、轨迹和 w 参数",
+    "should_trigger": false
+  },
+  {
+    "query": "抖音 BDMS 1.0.1.19 的 a_bogus 我要纯 Python 纯算，不依赖任何 JS runtime",
+    "should_trigger": true
+  },
+  {
+    "query": "我已有通过固定 trace 的完整 pure_abogus.py，维护抖音 BDMS 1.0.1.19 纯 Python 实现",
+    "should_trigger": true
+  },
+  {
+    "query": "我已有通过 1.0.1.19 trace 的 pure_abogus.py，帮我生成 douyin aweme/post 纯 requests 脚本",
+    "should_trigger": true
+  },
+  {
+    "query": "我已有曾通过固定 trace 的完整 pure_abogus.py，改动后 slot86/slot90 对不上，帮我修回归",
+    "should_trigger": true
+  },
+  {
+    "query": "帮我校验抖音纯 Python BDMS 1.0.1.19 的 SM3、sign_value、alphabet 和固定向量",
+    "should_trigger": true
+  },
+  {
+    "query": "只有 pure_abogus_template.py，没有完整 packing/field builder，帮我按 Trace core 从零恢复完整 a_bogus，而不是把模板当完整生成器",
+    "should_trigger": true
+  },
+  {
+    "query": "用 iv8 执行 BDMS JS，截获 XHR 里的 a_bogus",
+    "should_trigger": false
+  },
+  {
+    "query": "打开抖音页面找 a_bogus 的入口函数和调用栈",
+    "should_trigger": true
+  },
+  {
+    "query": "入口已知，帮我在 Node VM 补 window/document 环境跑 BDMS",
+    "should_trigger": true
+  },
+  {
+    "query": "运行 bundled verifier 校验 a_bogus 模板里的 SM3、stream transform 和 sign_value primitives",
+    "should_trigger": true
+  },
+  {
+    "query": "PC 微信小程序 WMPF 的 AppService 请求，先连 62000 CDP 找调用栈",
+    "should_trigger": false
+  },
+  {
+    "query": "只帮我创建瑞数固定项目骨架、首跳缓存和最小 proxy 模板",
+    "should_trigger": false
+  },
+  {
+    "query": "只定位 x-sign 在哪个脚本哪个函数生成，给 initiator 和调用链，不需要 collector",
+    "should_trigger": true
+  },
+  {
+    "query": "帮我优化一个 React 管理后台的响应式布局和表单可访问性",
+    "should_trigger": false
+  },
+  {
+    "query": "入口函数和调用参数已定位，固定输入的浏览器 a_bogus 输出已保存，现在要在 VM 沙箱补 navigator、document 和 crypto",
+    "should_trigger": true
+  },
+  {
+    "query": "这个 JSVMP 的入口和调用已知，同输入浏览器输出结构已保存；本地缺 canvas/performance，诊断 undefinedPaths 并逐轮补环境",
+    "should_trigger": true
+  },
+  {
+    "query": "浏览器 SDK 的 init、触发方式和固定 sign 样本已知，下一步把它封装成 Node 里的 sign.js",
+    "should_trigger": true
+  },
+  {
+    "query": "我已抓到入口、固定输入和浏览器 sign 前缀/长度，本地 VM 报 document.createElement 缺失，按日志补最小 DOM",
+    "should_trigger": true
+  },
+  {
+    "query": "入口文件、调用方式和固定浏览器签名已确定，补 localStorage、TextEncoder、URLSearchParams 后让 Node 输出一致",
+    "should_trigger": true
+  },
+  {
+    "query": "webpack 1842 的 makeSign 调用与固定浏览器输出已知，用最小 runtime 和 location/performance 在 Node 调用",
+    "should_trigger": true
+  },
+  {
+    "query": "这个瑞数入口 runtime、调用顺序和固定浏览器输出已扣下，走重型 Node VM/DOM 契约补环境，不要 Python+iv8",
+    "should_trigger": true
+  },
+  {
+    "query": "我已有瑞数 $_ts runner、调用参数和同输入浏览器 Cookie 结构，目标是 Node.js 补环境跑通，不是观察 Cookie",
+    "should_trigger": true
+  },
+  {
+    "query": "瑞数 challenge、调用方式和同 challenge 浏览器输出已固定，本地仍报 window is not defined，用 env-diagnose.js 补环境",
+    "should_trigger": true
+  },
+  {
+    "query": "入口调用已知且固定浏览器签名已保存；默认 env 能加载但输出不一致，用 native toString 和定向 monitor 找 first divergence",
+    "should_trigger": true
+  },
+  {
+    "query": "首页 412 且有 $_ts.cd、r2mKa、Cookie S/T，我要深挖瑞数字节码、二跳和完整算法链",
+    "should_trigger": true
+  },
+  {
+    "query": "瑞数 main.js 已能出 Cookie，但要继续恢复 hasDebug、时间随机、二跳消费和分页状态",
+    "should_trigger": true
+  },
+  {
+    "query": "腾讯验证码 TDC.getData(true) 在 Node 返回 Err，只补 slide.js 环境并导出 collect",
+    "should_trigger": false
+  },
+  {
+    "query": "这个 JS 全是 _0x 变量、大字符串数组和 while-switch，帮我还原成可读代码",
+    "should_trigger": true
+  },
+  {
+    "query": "从网站扣下 sojson 混淆代码，用 Babel AST 分步处理并保留每轮中间产物",
+    "should_trigger": true
+  },
+  {
+    "query": "这个 bundle 混淆很重，直接写脚本拆控制流平坦化，不只讲原理",
+    "should_trigger": true
+  },
+  {
+    "query": "按 Decode_action 插件式流程拆 awsc 混淆，把三元、逗号和逻辑表达式整理成 if/switch",
+    "should_trigger": true
+  },
+  {
+    "query": "sojsonv7 前面是字符串数组和解密函数，按家族选 pipeline 再落地 AST 脚本",
+    "should_trigger": true
+  },
+  {
+    "query": "我要阅读版解混淆并保留 step1、step2 中间产物，不是临时断点",
+    "should_trigger": true
+  },
+  {
+    "query": "obfuscator 里 while-switch 和 dispatcher object 很重，按 pass 拆 visitor",
+    "should_trigger": true
+  },
+  {
+    "query": "给我一段 Chrome DevTools 可直接粘贴的 hook，观察谁往 localStorage 写 token",
+    "should_trigger": true
+  },
+  {
+    "query": "只盯 fetch URL 包含 /api/order/submit 的请求，打印参数并 debugger",
+    "should_trigger": true
+  },
+  {
+    "query": "页面用 worker 和 crypto.subtle 算签名，先给浏览器临时观察 hook",
+    "should_trigger": true
+  },
+  {
+    "query": "已知要观察 x-sign header，不要调用链，只给 DevTools 脚本看谁写它",
+    "should_trigger": true
+  },
+  {
+    "query": "不关心文件位置，首个脚本暂停后注入 hook 看谁给 Cookie 补 acw_tc",
+    "should_trigger": true
+  },
+  {
+    "query": "页面同时走 xhr 和 fetch，只过滤 /web/report 和 /api/item/detail，打印 header 和栈",
+    "should_trigger": true
+  },
+  {
+    "query": "先用最小 hook 看谁写 x-sign，后面再决定是否追调用链",
+    "should_trigger": true
+  },
+  {
+    "query": "用 hook 采样两轮 API 的参数和 header，后续把样本交给 env profile",
+    "should_trigger": true
+  },
+  {
+    "query": "同时 hook XMLHttpRequest 和 fetch，只过滤 /api/，输出 header 与 body 摘要",
+    "should_trigger": true
+  },
+  {
+    "query": "想找 x-sign 来源但不知道从哪开始，先用轻量 hook 缩小嫌疑脚本范围",
+    "should_trigger": true
+  },
+  {
+    "query": "暂时不需要函数名，先 hook 看谁在写 header，范围缩小后再定位",
+    "should_trigger": true
+  },
+  {
+    "query": "我有首跳、业务请求和响应样本，但不知道 403 是出口、TLS、session 还是 signer；请先按失败面做最小诊断，最后再决定是否写 Python collector",
+    "should_trigger": true
+  },
+  {
+    "query": "列表第一页能返回，详情和导出还没验证；请先证明一个 coherent session replay，再讨论分页和并发",
+    "should_trigger": true
+  },
+  {
+    "query": "已确认 Akamai marker、三阶段 sensor_data 和业务回放，直接恢复纯 Python collector",
+    "should_trigger": false
+  },
+  {
+    "query": "已确认验证码 challenge、verify 和业务消费链，想修复同轮 token 与轨迹协议",
+    "should_trigger": false
+  },
+  {
+    "query": "用户明确要求 Python + iv8，入口和 baseline 都有，只需要把动态签名接入 requests",
+    "should_trigger": false
+  },
+  {
+    "query": "只有 HAR 和固定输出，想解释请求字段，不要求当前线上通过",
+    "should_trigger": true
+  }
+]

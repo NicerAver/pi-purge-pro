@@ -1,0 +1,4 @@
+# The forward-test report binds SKILL.md and a deterministic package digest over
+# every shipped file, so end-of-line normalization would silently invalidate
+# recorded evidence. Keep every tracked text file byte-stable on checkout.
+* -text

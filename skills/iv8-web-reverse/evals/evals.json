@@ -1,0 +1,193 @@
+{
+  "skill_name": "iv8-web-reverse",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "用 Python + iv8 跑京东 h5st，页码、pageSize、UA 都写在代码顶部，PyCharm 直接运行后 requests 请求接口并打印完整响应。",
+      "expected_output": "应生成紧凑 Python 主脚本，按实际重复度决定是否拆出 utils helper；参考 jd-h5st 案例，顶部保留可编辑常量，动态素材写入 js_reverse_cache，并至少执行 py_compile。",
+      "files": [],
+      "expectations": [
+        "The response uses Python with iv8 and requests or curl_cffi.requests for a real HTTP request",
+        "The response uses utils helpers only when they reduce real duplication; a clear single-file implementation is acceptable",
+        "The response keeps editable constants such as PAGE_SIZE, START_PAGE, UA, PAGE_URL, or API_URL at the top of the script",
+        "The response stores downloaded or generated runtime materials under the workspace js_reverse_cache directory"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "API 先返回 seed/name/ts，需要参考 zhipin-stoken.py 用 iv8 算 __zp_stoken__ cookie，再用同一个 requests.Session 重试接口。",
+      "expected_output": "应选择 browser-token/challenge-token 路线，保持同一 Session，iv8 计算 token/cookie 后回写 cookie jar 并重试真实请求。",
+      "files": [],
+      "expectations": [
+        "The response selects the bundled zhipin-stoken style case or equivalent browser-token route",
+        "The response keeps cookie, token, timestamp, and retry request in the same requests.Session",
+        "The response does not switch to the Trace Node.js env-patch profile or plain entry tracing as the main solution"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "瑞数后缀请求已经确认要走 iv8，帮我触发页面里的 XHR，从 iv8 netLog 取最终 URL、headers、cookieHeader 后用 requests 重放。",
+      "expected_output": "应选择 Ruishu-style XHR suffix capture 路线，参考 chinatax/customs 案例，在 iv8 内触发 XHR，读取 netLog 后 Python 重放。",
+      "files": [],
+      "expectations": [
+        "The response treats this as an iv8 runtime reproduction rather than a fixed Node scaffold task",
+        "The response reads final URL, headers, cookieHeader, or body metadata from iv8 netLog",
+        "The response replays the captured request with Python requests or curl_cffi.requests"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "普通接口 403，还不知道是什么防护。先帮我找 x-sign 入口和调用链，不要写 iv8 脚本。",
+      "expected_output": "不应触发 iv8-web-reverse 主流程，应返回 Trace Observe/Capture 做入口定位或路线判断。",
+      "files": [],
+      "expectations": [
+        "The response does not create a Python iv8 script before the deliverable is confirmed",
+        "The response hands off to Trace Observe/Capture or states that entry/location work should happen first"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "把这段依赖 window/document/navigator 的 JS 放到 Node VM 里补环境跑通，入口函数已经知道，不要 iv8。",
+      "expected_output": "不应触发 iv8-web-reverse，应转 trace env-patch profile，因为交付目标是 Node.js/VM 补环境。",
+      "files": [],
+      "expectations": [
+        "The response does not use iv8 as the main runtime",
+        "The response identifies this as Node.js or VM environment patching",
+        "The response hands off to the trace env-patch profile or follows its run-diagnose-patch-verify loop"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "这次 iv8 复现已经跑通了，帮我把脚本脱敏后回写成 skill 里的 bundled case，素材放到 references/cases/js_reverse_cache/<site-slug>/。",
+      "expected_output": "应进入案例回写模式，读取 case-ingestion-rules，只复制脱敏后的最小脚本和 frozen 素材，更新 taxonomy，不保存账号 Cookie 或完整响应。",
+      "files": [],
+      "expectations": [
+        "The response recognizes explicit bundled-case backfill mode",
+        "The response follows case-ingestion-rules and writes frozen assets under references/cases/js_reverse_cache/<site-slug>/",
+        "The response excludes credentials, personal tokens, full business responses, and one-off capture artifacts"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "这个站首包返回 Incapsula 页面，脚本会先 POST {\"f\":\"gpc\"}，再发送 solution.interrogation.p/st/sr/cr/og，帮我用 Python+iv8 动态生成 reese84 并请求业务 API。",
+      "expected_output": "应进入 Reese84 profile，建立同 session 的纯协议 collector，并以业务 API 成功作为最终验证。",
+      "files": [],
+      "expectations": [
+        "The response declares one coherent browser baseline and a browser-free final runtime",
+        "The response dynamically discovers and downloads the current challenge instead of freezing a script or token",
+        "The Python session performs real HTTP while iv8 executes the challenge",
+        "The response validates the protected page or business API rather than only the token endpoint"
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "reese84 token 接口已经 200 且返回 token，但带上后页面还是 403。iv8 里 p 是 bin1，怎么系统排查？",
+      "expected_output": "应按 Reese84 profile 的跨层身份、宿主泄漏、iframe、Canvas、Cookie 和 UTMVC 优先级做单变量诊断。",
+      "files": [],
+      "expectations": [
+        "The response states that receiving a token does not prove admission",
+        "The response compares UA, Client Hints, JS environment, and curl_cffi impersonation first",
+        "The response checks host leakage in the main and iframe realms",
+        "The response does not treat p length as a correctness criterion"
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "我抓到了 Chrome 150 的 Reese84 成功包，但本地 iv8 用的是 Firefox Canvas 和 Chrome UA。请修成可重复的 collector。",
+      "expected_output": "应拒绝跨浏览器混拼，选择一个 Chromium baseline 并重新采集 coherent 环境。",
+      "files": [],
+      "expectations": [
+        "The response identifies Firefox Canvas with Chrome UA as an invalid mixed baseline",
+        "The response recaptures same-source Canvas pixels and encoded image outputs",
+        "The response aligns HTTP UA, Client Hints, JS UA, and transport profile",
+        "The response requires at least two fresh-session validations"
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "动态 Reese84 已通过，下一步把抓包 curl 的业务 JSON URL、Referer 和 fetch headers 接进去，不能复用抓包 Cookie。",
+      "expected_output": "应在同一个通过挑战的 curl_cffi Session 中动态请求业务资源并保存响应。",
+      "files": [],
+      "expectations": [
+        "The response does not copy a frozen Cookie header",
+        "The response reuses the collector's curl_cffi Session",
+        "The response keeps UA, Client Hints, and transport coherent",
+        "The response saves status, content type, byte length, and parsed data"
+      ]
+    },
+    {
+      "id": 11,
+      "prompt": "已经确认页面在生成 reese84，但没有任何成功浏览器抓包，challenge 还是从独立 CDN 加载的，应该怎么开始？",
+      "expected_output": "应接受显式 Reese84 证据，建立受限跨域 allowlist 和单一 provisional baseline，并明确验证缺口。",
+      "files": [],
+      "expectations": [
+        "The response does not reject an explicit Reese84 marker merely because an accepted baseline is missing",
+        "The response neither allows nor blocks every cross-origin challenge unconditionally",
+        "The response installs core host-hiding, error, and network bridges before page.load",
+        "The response does not claim completion before protected business admission succeeds"
+      ]
+    },
+    {
+      "id": 12,
+      "prompt": "做一个长期运行的 Reese84 collector，服务端会返回 renewInSec，多个 worker 要持续请求业务接口。",
+      "expected_output": "应设计有安全余量、受保护资源验证、失败全量重建且 worker session 隔离的续期策略。",
+      "files": [],
+      "expectations": [
+        "The response records token acquisition time and renewInSec",
+        "The response validates renewal against a protected resource rather than only the token response",
+        "The response performs a full bootstrap and challenge after renewal failure",
+        "Workers do not share a mutable Cookie jar"
+      ]
+    },
+    {
+      "id": 13,
+      "prompt": "串行 Reese84 已经稳定成功，现在要并发 2 个 worker。ThreadPoolExecutor 里出现 EventTarget.addEventListener Illegal invocation，应该怎么实现和验证？",
+      "expected_output": "应识别 iv8 同进程线程安全问题，改用 spawn 多进程，每个 worker 隔离 runtime、Session 和 Cookie，并分两阶段验证 Reese 与业务 API。",
+      "files": [],
+      "expectations": [
+        "The response forbids ThreadPoolExecutor for parallel iv8 JSContext execution",
+        "The response uses ProcessPoolExecutor with multiprocessing spawn",
+        "Each process creates its own collector, Session, Cookie jar, and iv8 runtime",
+        "The response first validates two Reese workers and then two Reese plus business-API workers",
+        "Aggregated results do not print or return complete tokens or cookies"
+      ]
+    },
+    {
+      "id": 14,
+      "prompt": "已经确认 Reese84，challenge 能执行，但第一步 {\"f\":\"gpc\"} 返回 403，响应有 cf-mitigated: challenge。recovery HTML 里还有 window.__CF$cv$params 和 challenge-platform precursor main.js。怎么做 browser-free 全链？",
+      "expected_output": "应先把 Cloudflare precursor 建模为 GPC 前的独立 edge admission，用同一 curl_cffi Session 动态执行当轮脚本并获得 clearance，reload 后再进入 Reese；不得继续盲补 Canvas，也不得依赖随机闭包短变量名。",
+      "files": [],
+      "expectations": [
+        "The response identifies Cloudflare edge admission as the earliest failing layer before Reese GPC",
+        "The response dynamically fetches and executes the current precursor script in a separate bounded iv8 context while reusing the same Python Session",
+        "The response does not copy a browser cf_clearance or freeze a precursor URL, ray, body, or closure function name",
+        "The response distinguishes recognized precursor from a generic full Managed Challenge and hands the latter to Trace",
+        "The response validates GPC, solution, replay, and business admission after clearance rather than treating the clearance cookie as success"
+      ]
+    },
+    {
+      "id": 15,
+      "prompt": "首跳 POST 返回 Aliyun WAF challenge HTML，成功请求的 URL 多出长 md5__1803，入口函数在闭包里，要求用 Python + iv8 + requests 做无浏览器回放。",
+      "expected_output": "应读取 cdfsunrise-md5-1803 reverse-process，先用同一 requests.Session 获取 fresh challenge，再用 iv8 page.load 执行 WAF，静态确认 Lf/LK 参数顺序，处理源码自校验，生成完整签名 URL，最后以 application/json 和 responseHead.code=0 验收。",
+      "files": [],
+      "expectations": [
+        "The response selects iv8-web-reverse as the runtime owner",
+        "The response distinguishes the WAF md5__1803 URL signature from a business short sign",
+        "The response keeps challenge, cookie, body, and replay in one requests.Session",
+        "The response treats closure-scoped LK and Function.prototype.toString checks as first-class constraints",
+        "The response validates business JSON and code 0 rather than only HTTP 200"
+      ]
+    },
+    {
+      "id": 16,
+      "prompt": "普通 403，只想用 AST 找出闭包里的 LK 和调用链，暂时不要执行 challenge，也不要写 requests + iv8 回放脚本。",
+      "expected_output": "不应直接进入 iv8-web-reverse 的 Port 交付；应转 Trace AST/Observe 阶段，只输出入口、依赖和证据，不生成最终回放脚本。",
+      "files": [],
+      "expectations": [
+        "The response treats AST-only entry discovery as Trace-owned evidence work",
+        "The response does not claim a pure protocol replay is ready",
+        "The response does not create a full iv8 requests replay before the entry and protocol deliverable are requested"
+      ]
+    }
+  ]
+}

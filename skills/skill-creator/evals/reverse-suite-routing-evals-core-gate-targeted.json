@@ -1,0 +1,53 @@
+{
+  "description": "Targeted routing prompts for Pi core automatic routing-gate injection regressions found in pi-routing-benchmark-core-gate-full.json.",
+  "cases": [
+    {
+      "query": "未知站点有动态 cookie、x-sign、响应解密和分页状态，最终要 browser-free Python collector",
+      "expected_skill": "trace",
+      "not_expected_skills": ["akamai-protocol-reverse", "captcha-reverse", "captcha-vision", "iv8-web-reverse"],
+      "reason": "Unknown multi-layer protocol recovery belongs to Trace; iv8 is only a backend after prerequisites are clear."
+    },
+    {
+      "query": "帮我打开页面找 sign 函数、脚本 URL、initiator stack 和 JSVMP 读取的 navigator 字段",
+      "expected_skill": "trace",
+      "not_expected_skills": ["akamai-protocol-reverse", "captcha-reverse", "captcha-vision", "iv8-web-reverse"],
+      "reason": "Entry-location, script URL, initiator stack, and fingerprint reads are evidence-only Trace work."
+    },
+    {
+      "query": "入口函数 makeSign(params) 已知，固定浏览器输出也有了，把依赖 window/document 的 JS 放到 Node VM 跑通",
+      "expected_skill": "trace",
+      "not_expected_skills": ["iv8-web-reverse"],
+      "reason": "Known JS entry plus host-surface gaps belongs to Trace env-patch, not iv8 delivery."
+    },
+    {
+      "query": "给我一个能贴到 DevTools 的 hook，只观察谁写 Authorization header",
+      "expected_skill": "trace",
+      "not_expected_skills": ["iv8-web-reverse", "akamai-protocol-reverse", "captcha-reverse"],
+      "reason": "Paste-ready narrow browser observation stays Trace."
+    },
+    {
+      "query": "这段 obfuscator.io 风格 JS 帮我用 Babel 展开字符串数组和 while-switch，保留中间产物",
+      "expected_skill": "trace",
+      "not_expected_skills": ["iv8-web-reverse", "akamai-protocol-reverse", "captcha-reverse"],
+      "reason": "Structured AST restoration belongs to Trace AST profile."
+    },
+    {
+      "query": "只有一个 403 和一个可疑 _abck 名字，先帮我判断是什么防护",
+      "expected_skill": "trace",
+      "not_expected_skills": ["akamai-protocol-reverse"],
+      "reason": "A cookie name alone is insufficient for Akamai; family discovery remains Trace."
+    },
+    {
+      "query": "确认 Reese84，动态下载 challenge，生成 reese84 token/Cookie，然后回放业务页面",
+      "expected_skill": "iv8-web-reverse",
+      "not_expected_skills": ["akamai-protocol-reverse", "trace", "captcha-reverse"],
+      "reason": "Confirmed Reese84 collector, token/Cookie generation, and business replay belong to iv8-web-reverse."
+    },
+    {
+      "query": "Akamai _abck、bm_sz 和 sensor_data 链已确认，但这次只要 DevTools hook/call stack 找 collector 调用栈，不做纯协议恢复",
+      "expected_skill": "trace",
+      "not_expected_skills": ["akamai-protocol-reverse"],
+      "reason": "Known-family hook/call-stack observation remains Trace, not Akamai protocol recovery."
+    }
+  ]
+}

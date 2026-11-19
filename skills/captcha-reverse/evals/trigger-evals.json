@@ -1,0 +1,457 @@
+[
+    {
+        "prompt":  "Geetest4 /load 返回 lot_number、pow_detail、payload，我要纯 Python 生成 verify 的 w",
+        "should_trigger":  true,
+        "reason":  "GT4 protocol and w generation"
+    },
+    {
+        "prompt":  "极验4文字点选 risk_type=word，imgs+ques，要纯协议生成 userresponse 和 w",
+        "should_trigger":  true,
+        "reason":  "GT4 word-click protocol and userresponse encoding"
+    },
+    {
+        "prompt":  "gt4.geetest.com 点选验证码，ddddocr 定位坐标后回放 /verify",
+        "should_trigger":  true,
+        "reason":  "GT4 word click OCR + verify replay"
+    },
+    {
+        "prompt":  "gt4 verify 返回 param decrypt error，怀疑 pt=1 的 AES+RSA 层级错了",
+        "should_trigger":  true,
+        "reason":  "GT4 w encryption debugging"
+    },
+    {
+        "prompt":  "腾讯滑块 TDC.getData(true) 在 Node 里返回 Err%3A，帮我补 slide.js 环境并导出 collect",
+        "should_trigger":  true,
+        "reason":  "Tencent slide TDC environment and collect generation"
+    },
+    {
+        "prompt":  "cap_union_prehandle 返回 pow_cfg 和 tdc_path，想完整请求 cap_union_new_verify",
+        "should_trigger":  true,
+        "reason":  "Tencent captcha protocol chain"
+    },
+    {
+        "prompt":  "网易易盾 api/v3/get 返回 bg front token，帮我生成 cb、轨迹 data 并请求 api/v3/check",
+        "should_trigger":  true,
+        "reason":  "Yidun slide get/check protocol and data generation"
+    },
+    {
+        "prompt":  "NECaptcha 的 data 参数里 d p f ext 怎么根据 token 和轨迹生成",
+        "should_trigger":  true,
+        "reason":  "Yidun data parameter generation"
+    },
+    {
+        "prompt":  "数美滑块 ca/v1/register 返回 bg fg rid，帮我生成轨迹和 fverify 参数",
+        "should_trigger":  true,
+        "reason":  "Shumei slide register/fverify protocol chain"
+    },
+    {
+        "prompt":  "captcha1.fengkongcloud.cn 的 get_params.js 里 ww bb wi gq vs 怎么生成",
+        "should_trigger":  true,
+        "reason":  "Shumei fverify parameter generation"
+    },
+    {
+        "prompt":  "云片 captcha.yunpian.com 的 captcha/get 返回 bg front token，帮我生成 verify 的 i k cb",
+        "should_trigger":  true,
+        "reason":  "Yunpian captcha get/verify protocol chain"
+    },
+    {
+        "prompt":  "yp.js 里面 get_i_k_position 怎么把 points distanceX fp yp_riddler_id 加密成 i/k",
+        "should_trigger":  true,
+        "reason":  "Yunpian i/k behavior payload generation"
+    },
+    {
+        "prompt":  "360天御 api/v3/auth 返回 bg front captchaId token k，帮我还原图片并生成 check 的 report",
+        "should_trigger":  true,
+        "reason":  "360 Tianyu auth/check protocol and report generation"
+    },
+    {
+        "prompt":  "captcha.jiagu.360.cn 的 report 是轨迹 JSON 加 md5(captchaId+token) 再 RSA encryptLong 吗",
+        "should_trigger":  true,
+        "reason":  "360 Tianyu report encryption details"
+    },
+    {
+        "prompt":  "我只是想用 ddddocr 找滑块缺口，不需要请求 verify",
+        "should_trigger":  false,
+        "reason":  "Only image recognition"
+    },
+    {
+        "prompt":  "给我一个 hook fetch 和 xhr 的浏览器脚本",
+        "should_trigger":  false,
+        "reason":  "Browser hook snippet"
+    },
+    {
+        "prompt":  "帮我找这个接口 header sign 是哪个函数生成的",
+        "should_trigger":  false,
+        "reason":  "Generic crypto entry location"
+    },
+    {
+        "prompt":  "瑞数 412 首跳 cookie 怎么缓存到本地项目",
+        "should_trigger":  false,
+        "reason":  "Ruishu challenge, not slide captcha"
+    },
+    {
+        "prompt":  "帮我补 Node 环境运行这个混淆 JS，它用了 a_bogus 和 canvas 指纹",
+        "should_trigger":  false,
+        "reason":  "General Trace env-patch profile for obfuscated JS, not slide captcha"
+    },
+    {
+        "prompt":  "这个网站是 sign 是 bdms 生成的，帮我定位入口并还原算法",
+        "should_trigger":  false,
+        "reason":  "Generic crypto entry location, hand off to Trace Observe/Capture"
+    },
+    {
+        "prompt":  "Python + iv8 跑网页里那段生成 cookie 的 JS，再用 requests 发请求",
+        "should_trigger":  false,
+        "reason":  "Python + iv8 execution, hand off to iv8-web-reverse"
+    },
+    {
+        "prompt":  "腾讯 TDC 的 slide.js 帮我放到 Node 补环境跑通，只导出 collect 值",
+        "should_trigger":  true,
+        "reason":  "Tencent TDC slide.js environment patching — still captcha-slide work despite Trace env-patch-profile overlap"
+    },
+    {
+        "prompt":  "用 Python 把数美滑块的 register 到 fverify 整条链路走通，包括 get_params.js",
+        "should_trigger":  true,
+        "reason":  "Shumei full protocol chain with JS parameter generation"
+    },
+    {
+        "prompt":  "极验 /load 返回了图片，帮我算出 setLeft 并生成 w",
+        "should_trigger":  true,
+        "reason":  "GT4 slide distance + w generation"
+    },
+    {
+        "prompt":  "360 天御的 rsa_1.js 里 encryptReport 怎么调，k 需要先 base64 解码吗",
+        "should_trigger":  true,
+        "reason":  "360 Tianyu report encryption detail"
+    },
+    {
+        "prompt":  "这个 captchaId 和 token 在哪个接口拿到的，我只想找前端入口位置",
+        "should_trigger":  false,
+        "reason":  "Only locating frontend entry point, not full captcha reversal"
+    },
+    {
+        "prompt":  "帮我改一下易盾滑动验证码的 UI 样式，让滑块更好看",
+        "should_trigger":  false,
+        "reason":  "UI style issue, not captcha protocol reversal"
+    },
+    {
+        "prompt":  "极验3 slide-float 页加载 fullpage.9.2.0 和 slide.7.9.3，帮我纯协议跑通 get.php/ajax.php 的 w",
+        "should_trigger":  true,
+        "reason":  "Geetest GT3 fullpage + slide pure protocol chain"
+    },
+    {
+        "prompt":  "GT3 pre ajax.php 返回 param decrypt error，initial w 和 pre w 是不是要复用 aeskey",
+        "should_trigger":  true,
+        "reason":  "Geetest GT3 pre-radar aeskey troubleshooting"
+    },
+    {
+        "prompt":  "register-slide 返回 gt challenge，gettype.php 返回 fullpage，最终 ajax.php 要 $_BCm 和 validate",
+        "should_trigger":  true,
+        "reason":  "Geetest GT3 request chain and final ajax validation"
+    },
+    {
+        "prompt":  "极验3 bg fullbg slice 怎么还原 52 块乱序图并计算滑动距离",
+        "should_trigger":  true,
+        "reason":  "Geetest GT3 image restore and distance as part of protocol reversal"
+    },
+    {
+        "prompt":  "我只想要一段 DevTools hook 脚本观察 GT3 的 ajax.php 参数，不需要生成协议代码",
+        "should_trigger":  false,
+        "reason":  "Only browser hook snippet, hand off to the Trace browser-hook profile"
+    },
+    {
+        "prompt":  "只有一张极验3背景图，帮我用 OCR 找缺口，不请求 ajax.php",
+        "should_trigger":  false,
+        "reason":  "Only image recognition without captcha protocol"
+    },
+    {
+        "prompt":  "CSDN sendVerifyCode 返回 521 embedded_captcha，convert 后有 targetImage 和 background，帮我走 click_v2 verify",
+        "should_trigger":  true,
+        "reason":  "CSDN text point-click captcha protocol chain"
+    },
+    {
+        "prompt":  "cdn_cgi_bs_captcha/convert 没返回文字顺序，我想用 PaddleOCR 识别 targetImage，再让云码 300010 点选坐标",
+        "should_trigger":  true,
+        "reason":  "CSDN point-click target OCR plus coordinate recognition"
+    },
+    {
+        "prompt":  "CSDN 点选验证码 verify 要带 captcha_protect、fpv、wlocation 和 X-Req-Token，帮我做成本地脚本",
+        "should_trigger":  true,
+        "reason":  "CSDN point-click verify dynamic fields and local replay"
+    },
+    {
+        "prompt":  "我只有一张中文图片，帮我用 PaddleOCR 识别里面有什么字，不需要验证码请求",
+        "should_trigger":  false,
+        "reason":  "Only generic OCR without captcha protocol"
+    },
+    {
+        "prompt":  "携程登录 risk_inspect 返回 process_type=JIGSAW 和 original_image、processed_image、jigsaw_image，帮我纯 Python 算 value 并请求 verify_jigsaw",
+        "should_trigger":  true,
+        "reason":  "Ctrip captcha/v4 JIGSAW image solving and protocol verification"
+    },
+    {
+        "prompt":  "携程 verify_jigsaw 明明 code=0 却又返回新的 JIGSAW，帮我检查 300/320 坐标映射、轨迹时间和 token/rid 是否混轮",
+        "should_trigger":  true,
+        "reason":  "Ctrip captcha/v4 refreshed JIGSAW troubleshooting"
+    },
+    {
+        "prompt":  "captcha/v4 的 verify_msg 解密后有 cpuClass:undefined，risk 和 verify 的 dimensions 密文也不同，帮我做固定输入回归",
+        "should_trigger":  true,
+        "reason":  "Ctrip custom serializer and stage-specific dimensions regression"
+    },
+    {
+        "prompt":  "携程滑块纯 requests 回放总被刷新，怀疑 jigsawViewDuration 是假的而且 jigsawSlidingTrack 最后时间晚于请求发送",
+        "should_trigger":  true,
+        "reason":  "Ctrip behavior timeline consistency debugging"
+    },
+    {
+        "prompt":  "百度 Passport 安全验证弹出旋转验证码，链路有 /cap/init、/cap/style、/cap/img 和 /cap/log，typeid=spin-0，帮我生成 fs 并提交 cv=submit",
+        "should_trigger":  true,
+        "reason":  "Baidu Passport Spin V2 captcha protocol and fs submit chain"
+    },
+    {
+        "prompt":  "passport.baidu.com/cap/style 返回 backstr、ext.p、ext.en_conf，/cap/log code=0 但没有 data.op，帮我区分 telemetry 和真正旋转验证提交",
+        "should_trigger":  true,
+        "reason":  "Baidu Passport Spin V2 verifier packet and success marker troubleshooting"
+    },
+    {
+        "prompt":  "我只想用 OpenCV 比较携程 original_image 和 processed_image 找白色纸飞机位置，不需要 risk_inspect 或 verify_jigsaw",
+        "should_trigger":  false,
+        "reason":  "Only Ctrip image recognition without captcha protocol replay"
+    },
+    {
+        "prompt":  "GT4 更新了 new.js 后 /load、OCR、pow 和 w 都正常，但 verify 连续 status=success result=forbidden fail_count=0，帮我对比 _lib、lib._abo 和 lot_number 动态字段",
+        "should_trigger":  true,
+        "reason":  "Geetest GT4 bundle metadata rotation and forbidden troubleshooting"
+    },
+    {
+        "prompt":  "极验4 新旧 bundle 的 webpack 入口索引变了，旧正则暴露不出 require；帮我动态读取 fixedFields 和 lotRules，再同步纯 Python wPayload",
+        "should_trigger":  true,
+        "reason":  "Geetest GT4 webpack extraction and pure Python metadata synchronization"
+    },
+    {
+        "prompt":  "抖店邮箱登录弹出 VerifyCenter 滑块，链路是 mssdk token、captcha/get、双图、captchaBody、BDMS a_bogus、captcha/verify，帮我做成不依赖浏览器的 Python+iv8 回放",
+        "should_trigger":  true,
+        "reason":  "ByteDance VerifyCenter full slider protocol chain"
+    },
+    {
+        "prompt":  "本地生成的同一个 captcha/verify URL 和 body 放到 Chrome 能 code=200，Python 立即发却 VerifyErr，tmp 比 x-tt-timestamp 还快，帮我检查真实轨迹耗时和挑战新鲜窗口",
+        "should_trigger":  true,
+        "reason":  "VerifyCenter server-clock and real timeline consistency debugging"
+    },
+    {
+        "prompt":  "普通抖音 aweme/v1/web 接口只有 a_bogus，没有 captcha/get、captchaBody 或验证码图片，帮我定位签名函数",
+        "should_trigger":  false,
+        "reason":  "Generic non-captcha a_bogus signer tracing"
+    },
+    {
+        "prompt":  "阿里云 Captcha V2 的 InitCaptchaV2 已经拿到 DeviceConfig，帮我纯 Python 生成 Log2、Log3、deviceToken 并让 VerifyCaptchaV2 返回 T001",
+        "should_trigger":  true,
+        "reason":  "Aliyun Captcha V2 full verification protocol with device telemetry"
+    },
+    {
+        "prompt":  "阿里v2滑块人工能过，纯算一直 F001；我怀疑不是轨迹，而是 device.captcha-open.aliyuncs.com 的 Log2/Log3 没回放",
+        "should_trigger":  true,
+        "reason":  "Aliyun V2 sidecar isolation and F001 diagnosis"
+    },
+    {
+        "prompt":  "验证码主 verify 参数都能解密，但完整设备画像和增量 token 的 counter、采集时间不一致，服务端返回 F025，帮我做同轮状态回放",
+        "should_trigger":  true,
+        "reason":  "Verifier-gated captcha full-profile and sparse-token consistency"
+    },
+    {
+        "prompt":  "帮我写一个通用阿里云 OpenAPI HMAC-SHA1 RPC 签名函数，没有验证码、DeviceConfig 或 VerifyCaptchaV2",
+        "should_trigger":  false,
+        "reason":  "Generic Aliyun RPC signing, not captcha reversal"
+    },
+    {
+        "prompt":  "页面只有 acw_sc__v2 WAF cookie 挑战，没有滑块、InitCaptchaV2 或验证码 verify，帮我还原 cookie",
+        "should_trigger":  false,
+        "reason":  "Non-captcha Aliyun WAF challenge"
+    },
+    {
+        "prompt":  "阿里云 Captcha V2 下午还能 T001，现在固定 F025，DeviceConfig 从 feilin106 换成 feilin107；帮我对比 Log2 完整画像、稀疏 token、field21 和 sg 运行时 key，更新本地纯协议",
+        "should_trigger":  true,
+        "reason":  "Aliyun V2 daily FeiLin rotation and stale-profile recovery"
+    },
+    {
+        "prompt":  "阿里云 V2 正在灰度，连续 Init 混着 feilin109 和 feilin110，旧更新脚本一看到版本变化就中止；请按主流 cohort 采样、跳过异版本轮次并只在 T001 后原子更新 profile",
+        "should_trigger":  true,
+        "reason":  "Aliyun V2 gray-rollout cohort selection and safe daily profile promotion"
+    },
+    {
+        "prompt":  "参考 ./038-阿里v2 的 ALIYUN_V2_CORRECT_OPERATION_WORKFLOW.md，但目标是在 ./阿里v2复现 里实现纯协议 fresh T001，不要改原参考项目",
+        "should_trigger":  true,
+        "reason":  "Aliyun V2 target-directory reproduction with read-only reference project boundary"
+    },
+    {
+        "prompt":  "阿里云 Captcha V3 昨天 run_v3_fast 还能 T001，今天又挂了，InitCaptchaV3 的 DeviceConfig 从 feilin107 换成 feilin108，Log2/Log3 仍 200 但 Verify 固定 F001",
+        "should_trigger":  true,
+        "reason":  "Aliyun V3 daily FeiLin rotation; prefer profile update over track tuning"
+    },
+    {
+        "prompt":  "./039-阿里v3 的 PUZZLE 缺口滑块，主入口是 run_v3_fast.py，帮我按 FeiLin 日更自动刷新 t001_profile 并复测 T001",
+        "should_trigger":  true,
+        "reason":  "Aliyun V3 project daily auto profile refresh via run_v3_fast"
+    },
+    {
+        "prompt":  "阿里 V3 的 pe.015 换成 pe.032 了，是不是要把整个 VM 和轨迹都重写",
+        "should_trigger":  true,
+        "reason":  "Aliyun V3 pe rotation triage; should not confuse with FeiLin profile updates"
+    },
+    {
+        "prompt":  "EdgeOne mCaptcha 的 cap_union_prehandle 返回 click_verify、pow_cfg 和动态 tdc_path；我想用 Python+iv8 同轮生成 collect/eks 并让 cap_union_new_verify 从 errorCode=12 变成 0",
+        "should_trigger":  true,
+        "reason":  "Tencent EdgeOne TDC full CAPTCHA state machine and iv8 replay"
+    },
+    {
+        "prompt":  "普通网站经过 EdgeOne 后返回 403，但没有 cap_union_prehandle、tdc.js、TDC 或验证码 verify，帮我找 WAF Cookie 挑战",
+        "should_trigger":  false,
+        "reason":  "Generic EdgeOne protection without a Tencent CAPTCHA protocol chain"
+    },
+    {
+        "prompt":  "京东 Passport JCAP 2.8.5 有 /cgi-bin/api/fp、/cgi-bin/api/check、tp=30 和 b1/b2；参考项目已有 pure_protocol.py、jcap_runtime.js、cloak_profile.json，我要 Python+iv8 完整跑到 final check",
+        "should_trigger":  true,
+        "reason":  "JD JCAP full protocol recovery; captcha-reverse primary, iv8 secondary, known-good reference must be baseline"
+    },
+    {
+        "prompt":  "我只处理京东 tp=30 滑块，但本地 initial /check 返回 tp=3；不要做点选，请判断下一步",
+        "should_trigger":  true,
+        "reason":  "JD JCAP protocol diagnosis; must stop and diagnose runtime/device/risk state before any track tuning"
+    },
+    {
+        "prompt":  "京东 fp code=0、initial check code=0、tp=30 并拿到 b1/b2，但还没有 final /check，我能否宣称本地滑块已经复现成功",
+        "should_trigger":  true,
+        "reason":  "JD CAPTCHA acceptance semantics; bootstrap is not final solve without same-round code=0/no-next-tp/non-empty-vt"
+    },
+    {
+        "prompt":  "京东 JCAP 2.8.5 的 Python+iv8 只要求找 getCTData 的函数位置和调用栈，不需要回放 /fp 到 /check",
+        "should_trigger":  false,
+        "reason":  "Evidence-only entry/call-stack work belongs to Trace, not full captcha protocol replay"
+    },
+    {
+        "prompt":  "京东登录页只有 _abck、bm_sz 和 403，没有 /cgi-bin/api/fp、/cgi-bin/api/check 或验证码 challenge，帮我恢复 WAF cookie",
+        "should_trigger":  false,
+        "reason":  "Unconfirmed non-CAPTCHA WAF challenge; do not route to JD JCAP or Akamai from cookie names alone"
+    },
+    {
+        "prompt":  "京东 JCAP 滑块已经有完整 final /check 成功样本，我只想用 OpenCV 从 b1/b2 算缺口距离，不生成 tk/ct/cs，也不请求 verify",
+        "should_trigger":  false,
+        "reason":  "Image-only recognition without protocol replay"
+    },
+    {
+        "prompt":  "京东 JCAP 2.8.5 滑块需要恢复 /fp、初始 /check、手动轨迹和最终 /check；同时我有 best.pt 识别模型，请把协议和模型一起做完",
+        "should_trigger":  true,
+        "reason":  "Protocol recovery owns the full captcha chain even when a vision model is present"
+    },
+    {
+        "prompt":  "参考案例的 fresh init 已经 tp=30，但 solve 连续几轮按请求顺序变成失败；请继续多发几十轮找最优轨迹",
+        "should_trigger":  true,
+        "reason":  "JD risk-state contamination gate; stop live experiments instead of expanding traffic or tuning tracks"
+    },
+    {
+        "prompt":  "京东 JCAP 2.8.5 已知参考实现可以运行，先不要探测通用 iv8 环境，直接比较参考项目的 runtime、官方 bundle、pc-tk 和 profile 与目标目录",
+        "should_trigger":  true,
+        "reason":  "Known-good baseline adoption is part of JD protocol reproduction"
+    },
+    {
+        "prompt":  "我有一个普通网页的 Python+iv8 sign/cookie JS 执行任务，没有 captcha 图片、challenge、verify/check 或验证码状态机",
+        "should_trigger":  false,
+        "reason":  "Generic Python+iv8 execution belongs to iv8-web-reverse"
+    },
+    {
+        "prompt":  "captcha.tianai.cloud 的 /v2/api/open/captcha/generate 返回 SLIDER、backgroundImage、templateImage 和 data.shuffle.pos，帮我还原 5x2 图片、生成轨迹并提交 /v2/api/open/captcha/verify",
+        "should_trigger":  true,
+        "reason":  "TianAi full slider protocol chain with image restoration and final verify"
+    },
+    {
+        "prompt":  "天爱滑块页面有 __drives__、__ki__、__encrypt__，当前资源是 cw.js + cw.wasm，我要 Python+iv8+cURL_cffi 做 fresh generate 到 verify 的纯协议回放",
+        "should_trigger":  true,
+        "reason":  "TianAi current cw collector with explicit iv8 backend and same-round replay"
+    },
+    {
+        "prompt":  "天爱验证码本地 verify 返回 4001 或 50000，帮我按同轮 id、图片 pos、页面显示坐标、left/top、轨迹点数和时序分层排查",
+        "should_trigger":  true,
+        "reason":  "TianAi failure-code diagnosis across coordinate and behavior layers"
+    },
+    {
+        "prompt":  "我只有天爱滑块的 template.png 和 background.png，不请求 generate 或 verify，只想用 OpenCV 找缺口 x",
+        "should_trigger":  false,
+        "reason":  "Image-only gap recognition without protocol replay"
+    },
+    {
+        "prompt":  "我只想给天爱页面写一个 hook fetch/xhr 的脚本，记录 verify body，不需要实现本地协议",
+        "should_trigger":  false,
+        "reason":  "Evidence-only browser hook work belongs to Trace"
+    },
+    {
+        "prompt":  "天爱验证码 generate 返回 type=CONCAT、CONCAT_ id 和 data.randomY，页面叫滑动还原；帮我识别上下图拼接位移、生成多模板轨迹并用 cw.js/cw.wasm 提交同轮 verify",
+        "should_trigger":  true,
+        "reason":  "TianAi CONCAT image alignment, behavior templates, encryption and final verify protocol"
+    },
+    {
+        "prompt":  "我只有一张天爱 CONCAT 上下错位图片，想离线算拼接 x，不请求 generate/verify，也不需要轨迹和 cw.wasm",
+        "should_trigger":  false,
+        "reason":  "Image-only CONCAT recognition without protocol replay belongs to vision/image processing"
+    },
+    {
+        "prompt":  "苏宁 Passport 登录出现 iarVerifyCodeTicket、iar-web/init.json、sncaptchaMgr 和 validate.json；帮我用 Python 同轮还原 20 块背景、生成 data，让 resp_code=0 后把 token 交给 login",
+        "should_trigger":  true,
+        "reason":  "Suning IAR JIGSAW full protocol from ticket/init through verifier and login consumer"
+    },
+    {
+        "prompt":  "苏宁 IAR 的 gTypes 返回动态 param/tInfo 和 mgr，我要 Python+iv8 在同一 realm 触发 trusted pointer，纯协议请求 validate.json，不依赖浏览器 Cookie",
+        "should_trigger":  true,
+        "reason":  "Suning IAR protocol owns the state machine while iv8 is the isolated runtime backend"
+    },
+    {
+        "prompt":  "苏宁拼图本地 data 非空但 validate resp_code=1，浏览器成功轮 piece left 比 slider delta 少 7px；帮我比较 draw mapping、gap、pointer offset、轨迹和时间",
+        "should_trigger":  true,
+        "reason":  "Suning IAR same-round coordinate and behavior diagnosis using verifier semantics"
+    },
+    {
+        "prompt":  "我只想在苏宁登录页 Hook sncaptchaMgr，打印 validate.json 的调用栈和 initiator，不需要本地请求或验证码 token",
+        "should_trigger":  false,
+        "reason":  "Evidence-only hook and entry-location work belongs to Trace"
+    },
+    {
+        "prompt":  "苏宁普通登录页已经没有验证码，我只想找 loginPBK 并用 RSA 加密密码提交 /ids/login",
+        "should_trigger":  false,
+        "reason":  "Ordinary login password encryption without IAR challenge or verifier is not CAPTCHA protocol work"
+    },
+    {
+        "prompt":  "我只有苏宁 IAR 的背景图和滑块 PNG，想用 OpenCV 离线算 gap，不请求 ticket、init 或 validate.json",
+        "should_trigger":  false,
+        "reason":  "Image-only gap recognition without IAR protocol replay belongs to vision/image processing"
+    },
+    {
+        "prompt": "MTCaptcha v1 的 service2.mtcaptcha.com 有 getchallenge.json、getimage.json、solvechallenge.json 和 foldChlg，我要 Python 纯协议恢复 ct、fa、kt 并用 ddddocr 自动识别后提交",
+        "should_trigger": true,
+        "reason": "MTCaptcha v1 same-round protocol replay with fa/kt fields, OCR substep, and final solvechallenge acceptance"
+    },
+    {
+        "prompt": "MTCaptcha getchallenge 返回 hasTextChlg 和 fseed，getimage 后想保存 state，OCR 识别当前 GIF，再用同一轮 ss/ct 请求 solvechallenge 并检查 verifiedToken.vt",
+        "should_trigger": true,
+        "reason": "MTCaptcha v1 state persistence, OCR answer, and final verifier response"
+    },
+    {
+        "prompt": "MTCaptcha 的 ddddocr 识别结果多了一个云朵造成的字符，帮我用比例裁剪、textlen 校验和 fresh round 对照排查，不能直接截断后请求",
+        "should_trigger": true,
+        "reason": "MTCaptcha OCR preprocessing and same-round failure diagnosis"
+    },
+    {
+        "prompt": "我只有一张 MTCaptcha GIF，想用 ddddocr 识别文字，不需要 getchallenge、solvechallenge 或服务端验收",
+        "should_trigger": false,
+        "reason": "Image-only OCR without MTCaptcha protocol replay belongs to generic OCR or captcha-vision"
+    },
+    {
+        "prompt": "我想给 MTCaptcha 写一个 fetch/XHR hook，只记录 solvechallenge 参数和调用栈，不实现本地请求",
+        "should_trigger": false,
+        "reason": "Evidence-only browser hook work belongs to Trace"
+    },
+    {
+        "prompt": "service2.mtcaptcha.com 返回普通 HTTP 403，没有 getchallenge、getimage 或 solvechallenge，我想恢复 WAF cookie",
+        "should_trigger": false,
+        "reason": "Unconfirmed WAF/cookie challenge without MTCaptcha protocol signals"
+    }
+]

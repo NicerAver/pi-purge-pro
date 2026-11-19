@@ -1,0 +1,231 @@
+{
+  "description": "Cross-skill routing prompts for the local reverse-engineering skill suite. These are trigger/routing cases, not fixed website protocol samples.",
+  "cases": [
+    {
+      "query": "未知站点有动态 cookie、x-sign、响应解密和分页状态，最终要 browser-free Python collector",
+      "expected_skill": "trace",
+      "not_expected_skills": ["akamai-protocol-reverse", "captcha-reverse", "captcha-vision", "iv8-web-reverse"],
+      "reason": "Unknown multi-layer protocol recovery belongs to Trace."
+    },
+    {
+      "query": "帮我打开页面找 sign 函数、脚本 URL、initiator stack 和 JSVMP 读取的 navigator 字段",
+      "expected_skill": "trace",
+      "not_expected_skills": ["akamai-protocol-reverse", "captcha-reverse", "captcha-vision", "iv8-web-reverse"],
+      "reason": "Live browser evidence and Camoufox/JSVMP tracing are Trace Observe/Capture work."
+    },
+    {
+      "query": "入口函数 makeSign(params) 已知，固定浏览器输出也有了，把依赖 window/document 的 JS 放到 Node VM 跑通",
+      "expected_skill": "trace",
+      "not_expected_skills": ["iv8-web-reverse"],
+      "reason": "Known JS entry plus host-surface gaps belongs to Trace env-patch."
+    },
+    {
+      "query": "给我一个能贴到 DevTools 的 hook，只观察谁写 Authorization header",
+      "expected_skill": "trace",
+      "reason": "Paste-ready narrow browser hook is a Trace browser-hook profile task."
+    },
+    {
+      "query": "这段 obfuscator.io 风格 JS 帮我用 Babel 展开字符串数组和 while-switch，保留中间产物",
+      "expected_skill": "trace",
+      "not_expected_skills": ["iv8-web-reverse"],
+      "reason": "Structured AST restoration belongs to Trace AST profile."
+    },
+    {
+      "query": "确认 Akamai Bot Manager，已有 _abck、bm_sz、sensor_data POST 和 /akam/13/pixel 请求，要纯协议恢复",
+      "expected_skill": "akamai-protocol-reverse",
+      "reason": "Confirmed Akamai-native markers plus corroboration belong to Akamai specialist."
+    },
+    {
+      "query": "只有一个 403 和一个可疑 _abck 名字，先帮我判断是什么防护",
+      "expected_skill": "trace",
+      "not_expected_skills": ["akamai-protocol-reverse"],
+      "reason": "Cookie name alone is insufficient for Akamai; family discovery remains Trace."
+    },
+    {
+      "query": "极验 GT4 load 到 verify，包含 lot_number、pow_detail、w、图片和滑动轨迹，帮我做本地协议回放",
+      "expected_skill": "captcha-reverse",
+      "reason": "Complete CAPTCHA protocol chain belongs to captcha-reverse."
+    },
+    {
+      "query": "腾讯 TCaptcha cap_union_prehandle 返回 tdc_path，要复现 TDC collect、POW 和 cap_union_new_verify",
+      "expected_skill": "captcha-reverse",
+      "reason": "Tencent TDC verification state machine belongs to captcha-reverse."
+    },
+    {
+      "query": "阿里云 Captcha V3 昨天 T001 今天 F001，run_v3_fast 的 FeiLin profile 日更失败，帮我判断极速/完整分支并给出协议处理步骤",
+      "expected_skill": "captcha-reverse",
+      "reason": "Aliyun Captcha V3 profile/version workflow belongs to captcha-reverse."
+    },
+    {
+      "query": "GT4 九宫格识别模型训练，目标产物 best.pt、ONNX 和 fresh 通过率统计；不要恢复 /load /verify 协议",
+      "expected_skill": "captcha-vision",
+      "reason": "Vision model training and inference artifacts belong to captcha-vision."
+    },
+    {
+      "query": "GT4 icon 背景目标检测要用 YOLOv8，提示图用 CLIP 伪标注，压缩单次识别耗时",
+      "expected_skill": "captcha-vision",
+      "reason": "Detection/ranker/model speed work belongs to captcha-vision."
+    },
+    {
+      "query": "GT4 的 /load、pow、gct、AES/RSA w 参数和 /verify body 这些验证码协议字段还没恢复；先只给路线，不执行还原",
+      "expected_skill": "captcha-reverse",
+      "not_expected_skills": ["captcha-vision"],
+      "reason": "Protocol shell and w generation are not captcha-vision tasks."
+    },
+    {
+      "query": "明确用 Python + iv8 跑浏览器 JS 生成 cookie 和最终 URL，再用同一个 requests.Session 请求接口",
+      "expected_skill": "iv8-web-reverse",
+      "reason": "Explicit Python + iv8 delivery belongs to iv8-web-reverse."
+    },
+    {
+      "query": "确认 Reese84，动态下载 challenge，生成 reese84 token/Cookie，然后回放业务页面",
+      "expected_skill": "iv8-web-reverse",
+      "not_expected_skills": ["akamai-protocol-reverse", "trace"],
+      "reason": "Confirmed Reese84 collector belongs to iv8-web-reverse profile."
+    },
+    {
+      "query": "普通接口 403，不知道防护类型，只想先找 x-sign 入口，不要写 iv8 脚本",
+      "expected_skill": "trace",
+      "not_expected_skills": ["iv8-web-reverse"],
+      "reason": "Unknown entry location is Trace Observe/Capture, not iv8 delivery."
+    },
+    {
+      "query": "帮我把这个 workflow 变成新的 OpenCode skill，并加 trigger eval",
+      "expected_skill": "skill-creator",
+      "reason": "Creating or evaluating skills belongs to skill-creator."
+    },
+    {
+      "query": "做一次 OpenCode skill-set audit：检查触发边界、description 和 eval 覆盖，先只给评估计划，不运行基准",
+      "expected_skill": "skill-creator",
+      "not_expected_skills": ["customize-opencode"],
+      "reason": "Skill-set audit and description optimization belong to skill-creator."
+    },
+    {
+      "query": "页面只有一个叫 SWJIYLWA 的 cookie 和普通 403，不知道是不是 Imperva，先做防护家族识别和调用链取证",
+      "expected_skill": "trace",
+      "not_expected_skills": ["akamai-protocol-reverse", "iv8-web-reverse"],
+      "reason": "An unconfirmed cookie and 403 require family triage rather than the Reese84 specialist."
+    },
+    {
+      "query": "已确认 Reese84，但我只要打开浏览器定位 solution.interrogation 的生成函数、脚本 URL 和 initiator，不做 iv8 collector",
+      "expected_skill": "trace",
+      "not_expected_skills": ["akamai-protocol-reverse", "iv8-web-reverse"],
+      "reason": "Evidence-only browser entry tracing remains Trace even for a known family."
+    },
+    {
+      "query": "极验 GT4 icon 的 load、w 和 verify 已经跑通，只训练 YOLO 检测与提示图匹配并导出 ONNX",
+      "expected_skill": "captcha-vision",
+      "reason": "A solved protocol shell with a model-only deliverable belongs to captcha-vision."
+    },
+    {
+      "query": "GT4 九宫格模型已经有 best.pt，现在恢复同轮 challenge、pow、w、verify 和通过后的业务请求",
+      "expected_skill": "captcha-reverse",
+      "not_expected_skills": ["captcha-vision"],
+      "reason": "Protocol state and post-verify replay remain captcha-reverse even when a model already exists."
+    },
+    {
+      "query": "Akamai _abck、bm_sz 和 sensor_data 链已确认，但这次只要 DevTools hook/call stack 找 collector 调用栈，不做纯协议恢复",
+      "expected_skill": "trace",
+      "not_expected_skills": ["akamai-protocol-reverse"],
+      "reason": "A narrow observation artifact belongs to Trace, not pure-protocol Akamai recovery."
+    },
+    {
+      "query": "完整 TCaptcha challenge、图片、轨迹和 verify 状态机要恢复，执行后端明确指定 Python iv8",
+      "expected_skill": "captcha-reverse",
+      "not_expected_skills": ["iv8-web-reverse", "captcha-vision"],
+      "reason": "The complete CAPTCHA state machine owns the task; iv8 is only its execution backend."
+    },
+    {
+      "query": "修改 opencode.json 的 MCP 配置和 agent 权限，不创建、不评测也不修改任何 skill",
+      "expected_skill": "customize-opencode",
+      "reason": "OpenCode configuration without skill-definition changes belongs to the built-in customize-opencode skill."
+    },
+    {
+      "query": "入口函数已知，JS 会在页面生命周期里读取 document.cookie 和 localStorage，启动 timer 后通过 fetch 改写请求 URL，还会检查 Function.prototype.toString；没有指定执行后端，复杂补环境不要先试 Node",
+      "expected_skill": "trace",
+      "reason": "Complex browser-semantic env-patch with no user-selected backend is coordinated by Trace; iv8-web-reverse is a legitimate secondary backend and is selected before Node.js."
+    },
+    {
+      "query": "入口和固定输入已知，Node 补环境已经连续多轮卡在 DOM 生命周期、XHR replay 和 canvas；不要继续扩 Node shim，直接改用 iv8 生成 cookie 和最终请求",
+      "expected_skill": "iv8-web-reverse",
+      "reason": "Explicit complex-runtime handoff to iv8 belongs to iv8-web-reverse; a Node/VM trial round must not be started first. The former nv8-env-patch negative was retired together with that skill."
+    },
+    {
+      "query": "入口函数 makeSign(params) 已知，固定输入同步返回 sign，只读取一个 navigator.language 字段，用最小 Node VM 补齐即可",
+      "expected_skill": "trace",
+      "not_expected_skills": ["iv8-web-reverse"],
+      "reason": "A simple synchronous known-entry task with one narrow host patch remains Trace env-patch and should not escalate to iv8."
+    },
+    {
+      "query": "审查这个 React 项目的结算逻辑，找业务 bug 并补单元测试，不涉及 OpenCode skill",
+      "expected_skill": "none",
+      "reason": "Ordinary application code review should not load a skill from this reverse-engineering suite."
+    },
+    {
+      "query": "明确用 NV8 跑已经定位的签名 JS，做离线确定性 replay，并落成 Node 常驻分页采集服务",
+      "expected_skill": "nv8-node-runtime",
+      "not_expected_skills": ["trace", "iv8-web-reverse"],
+      "reason": "An explicit NV8 runtime and sustainable Node collection deliverable belongs to nv8-node-runtime."
+    },
+    {
+      "query": "签名入口和固定样本都已知，不要 Python；请用 Node + NV8 读取 bundle 并输出 x-sign",
+      "expected_skill": "nv8-node-runtime",
+      "not_expected_skills": ["trace", "iv8-web-reverse"],
+      "reason": "Node + NV8 execution is a direct runtime selection, not generic Trace or Python iv8 work."
+    },
+    {
+      "query": "帮我抓 PC 微信小程序下单接口的加密参数入口，在 AppService 里找签名函数和调用栈",
+      "expected_skill": "wechat-miniapp-reverse",
+      "not_expected_skills": ["trace", "iv8-web-reverse"],
+      "reason": "WMPF/AppService runtime evidence is owned by the miniapp skill, not a browser family or a runtime backend."
+    },
+    {
+      "query": "微信小程序 WMPF 里给我一段能贴的 hook，只观察谁写 X-Sign header",
+      "expected_skill": "wechat-miniapp-reverse",
+      "not_expected_skills": ["trace"],
+      "reason": "Runtime surface beats the hook/Console/Snippets delivery word; the miniapp skill owns the target and execution context."
+    },
+    {
+      "query": "普通网页（不是小程序）要一段 DevTools hook 只观察谁写 document.cookie",
+      "expected_skill": "trace",
+      "not_expected_skills": ["wechat-miniapp-reverse"],
+      "reason": "Ordinary Web hook work stays in the Trace browser-hook profile."
+    },
+    {
+      "query": "小程序请求、initiator 调用栈和固定输入输出都已抽取，现在要做脱离微信的 browser-free Python 采集器",
+      "expected_skill": "trace",
+      "not_expected_skills": ["wechat-miniapp-reverse"],
+      "reason": "After WMPF evidence exists, the browser-free collector outcome moves forward to Trace with the saved miniapp artifacts."
+    },
+    {
+      "query": "小程序里弹了腾讯滑块验证码，帮我从 challenge 到 verify 完整本地复现",
+      "expected_skill": "captcha-reverse",
+      "not_expected_skills": ["wechat-miniapp-reverse", "captcha-vision"],
+      "reason": "A complete CAPTCHA protocol chain stays with captcha-reverse; the miniapp skill only supplies WMPF runtime evidence."
+    },
+    {
+      "query": "小程序签名入口已定位，用 iv8 补环境执行这段 JS 再用 requests 回放",
+      "expected_skill": "iv8-web-reverse",
+      "not_expected_skills": ["wechat-miniapp-reverse"],
+      "reason": "An explicit iv8 runtime directive with a fixed entry owns the runtime task even when the entry came from a miniapp."
+    },
+    {
+      "query": "Imperva/Incapsula Reese84 的 GPC、solution POST、动态 Cookie 和 token 已确认，现在要用 Python + iv8 回放业务页面",
+      "expected_skill": "iv8-web-reverse",
+      "not_expected_skills": ["trace", "akamai-protocol-reverse"],
+      "reason": "Confirmed Reese84 dynamic challenge and business replay with an explicit Python + iv8 delivery belongs to iv8-web-reverse."
+    },
+    {
+      "query": "小程序 AppService 的请求、调用栈、固定输入输出和字段契约都已保存，现在只要脱离微信的纯 Python browser-free collector，不使用 iv8",
+      "expected_skill": "trace",
+      "not_expected_skills": ["wechat-miniapp-reverse", "iv8-web-reverse"],
+      "reason": "Captured WMPF evidence plus a pure browser-free Python collector outcome moves to Trace; Python alone does not select iv8."
+    },
+    {
+      "query": "微信小程序 WebView 里的腾讯验证码已经拿到请求样本，现在要恢复同轮 challenge、轨迹、加密参数和最终 verify/check",
+      "expected_skill": "captcha-reverse",
+      "not_expected_skills": ["wechat-miniapp-reverse", "captcha-vision", "iv8-web-reverse"],
+      "reason": "The complete embedded CAPTCHA state machine remains captcha-reverse; WMPF only supplies runtime evidence and iv8 is not selected by a marker."
+    }
+  ]
+}

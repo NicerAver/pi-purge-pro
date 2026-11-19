@@ -1,0 +1,146 @@
+{
+  "eval_type": "pi_native_suite_routing_paired",
+  "model": "openai/gpt-5.5",
+  "thinking": "off",
+  "eval_file": "./skill-creator/evals/reverse-suite-routing-evals-skillcreator-boundary.json",
+  "skill_paths": [
+    "./trace/SKILL.md",
+    "./akamai-protocol-reverse/SKILL.md",
+    "./captcha-reverse/SKILL.md",
+    "./captcha-vision/SKILL.md",
+    "./iv8-web-reverse/SKILL.md",
+    "./skill-creator/SKILL.md"
+  ],
+  "workers": 3,
+  "timeout_seconds": 180,
+  "routing_gate_path": "./_shared/js-reverse-workflow.md",
+  "routing_gate_chars": 4227,
+  "summary": {
+    "total_cases": 3,
+    "completed_runs": 6,
+    "baseline": {
+      "runs": 3,
+      "valid": 3,
+      "correct": 3,
+      "accuracy": 1.0,
+      "errors": 0,
+      "mean_elapsed_ms": 7631,
+      "mean_output_chars": 27,
+      "forbidden_owner_hits": 0
+    },
+    "with_skill": {
+      "runs": 3,
+      "valid": 3,
+      "correct": 3,
+      "accuracy": 1.0,
+      "errors": 0,
+      "mean_elapsed_ms": 10589,
+      "mean_output_chars": 27,
+      "forbidden_owner_hits": 0
+    },
+    "paired_valid": 3,
+    "improved": 0,
+    "regressed": 0,
+    "unchanged_correct": 3,
+    "unchanged_wrong": 0,
+    "paired_forbidden_owner_hits": 0
+  },
+  "results": [
+    {
+      "case_index": 0,
+      "mode": "baseline",
+      "query": "帮我把这个 workflow 变成新的 OpenCode skill，并加 trigger eval",
+      "expected_owner": "skill-creator",
+      "not_expected_owners": [
+        "customize-opencode"
+      ],
+      "owner": "skill-creator",
+      "correct": true,
+      "forbidden_owner_hit": false,
+      "elapsed_ms": 5545,
+      "output_chars": 25,
+      "output": "{\"OWNER\":\"skill-creator\"}",
+      "error": null
+    },
+    {
+      "case_index": 0,
+      "mode": "with_skill",
+      "query": "帮我把这个 workflow 变成新的 OpenCode skill，并加 trigger eval",
+      "expected_owner": "skill-creator",
+      "not_expected_owners": [
+        "customize-opencode"
+      ],
+      "owner": "skill-creator",
+      "correct": true,
+      "forbidden_owner_hit": false,
+      "elapsed_ms": 6187,
+      "output_chars": 25,
+      "output": "{\"OWNER\":\"skill-creator\"}",
+      "error": null
+    },
+    {
+      "case_index": 1,
+      "mode": "baseline",
+      "query": "做一次 OpenCode skill-set audit：检查触发边界、description 和 eval 覆盖，先只给评估计划，不运行基准",
+      "expected_owner": "skill-creator",
+      "not_expected_owners": [
+        "customize-opencode"
+      ],
+      "owner": "skill-creator",
+      "correct": true,
+      "forbidden_owner_hit": false,
+      "elapsed_ms": 6482,
+      "output_chars": 25,
+      "output": "{\"OWNER\":\"skill-creator\"}",
+      "error": null
+    },
+    {
+      "case_index": 1,
+      "mode": "with_skill",
+      "query": "做一次 OpenCode skill-set audit：检查触发边界、description 和 eval 覆盖，先只给评估计划，不运行基准",
+      "expected_owner": "skill-creator",
+      "not_expected_owners": [
+        "customize-opencode"
+      ],
+      "owner": "skill-creator",
+      "correct": true,
+      "forbidden_owner_hit": false,
+      "elapsed_ms": 6894,
+      "output_chars": 25,
+      "output": "{\"OWNER\":\"skill-creator\"}",
+      "error": null
+    },
+    {
+      "case_index": 2,
+      "mode": "baseline",
+      "query": "修改 opencode.json 的 MCP 配置和 agent 权限，不新增、不优化也不修改任何 skill",
+      "expected_owner": "customize-opencode",
+      "not_expected_owners": [
+        "skill-creator"
+      ],
+      "owner": "customize-opencode",
+      "correct": true,
+      "forbidden_owner_hit": false,
+      "elapsed_ms": 10866,
+      "output_chars": 30,
+      "output": "{\"OWNER\":\"customize-opencode\"}",
+      "error": null
+    },
+    {
+      "case_index": 2,
+      "mode": "with_skill",
+      "query": "修改 opencode.json 的 MCP 配置和 agent 权限，不新增、不优化也不修改任何 skill",
+      "expected_owner": "customize-opencode",
+      "not_expected_owners": [
+        "skill-creator"
+      ],
+      "owner": "customize-opencode",
+      "correct": true,
+      "forbidden_owner_hit": false,
+      "elapsed_ms": 18685,
+      "output_chars": 30,
+      "output": "{\"OWNER\":\"customize-opencode\"}",
+      "error": null
+    }
+  ]
+}

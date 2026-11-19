@@ -1,0 +1,114 @@
+[
+  {
+    "query": "这个站点首跳有 _abck、bm_sz，页面会 POST sensor_data，帮我做浏览器外 Python 请求",
+    "should_trigger": true
+  },
+  {
+    "query": "Jet2 有 _abck、bm_sz 和两轮 sensor_data POST，/api/managebasket/basketdata/refresh 被拦了，需要协议恢复",
+    "should_trigger": true
+  },
+  {
+    "query": "页面有 /akam/13/pixel_xxx 和随机 collector，两轮 POST 后 _abck 变化，帮我协议复现",
+    "should_trigger": true
+  },
+  {
+    "query": "页面已有 _abck 和两轮 sensor_data；curl_cffi 首页 200 但业务路由 HTTP/2 INTERNAL_ERROR，sensor UA 和 TLS 可能不一致",
+    "should_trigger": true
+  },
+  {
+    "query": "已有 Akamai v3 collector 和浏览器 sensor 样本，想用 Python + iv8 在本地执行并回放 API",
+    "should_trigger": true
+  },
+  {
+    "query": "已由 _abck、bm_sz 和 sensor_data 确认 Akamai，业务 428 返回 sec-cp-challenge 与 provider=crypto，帮我恢复 sec_cpt 1 到 3 的浏览器外 verifier 链",
+    "should_trigger": true
+  },
+  {
+    "query": "已确认 Akamai，业务接口返回 {\"cpr_chlge\":\"true\",\"t\":\"612819139\"}；首页有 bm_so 和 /dynamic.js?v=abc&t=612819139，浏览器 POST {\"body\":\"...\"} 后返回 bm_sc=2~1~...，请做浏览器外 Python 协议",
+    "should_trigger": true
+  },
+  {
+    "query": "这个接口返回 403，不知道是什么风控，先帮我判断",
+    "should_trigger": false
+  },
+  {
+    "query": "只有一个名为 _abck 的 cookie，没有抓包和脚本信息，帮我直接写生成器",
+    "should_trigger": false
+  },
+  {
+    "query": "普通 curl 请求出现 HTTP/2 INTERNAL_ERROR，不知道服务商是谁",
+    "should_trigger": false
+  },
+  {
+    "query": "响应里只有一个 sec_cpt cookie 和 428，没有 collector、脚本或 cookie transition 证据，直接帮我写 PoW",
+    "should_trigger": false
+  },
+  {
+    "query": "已经确认 Akamai，只想定位 collector 里生成 sensor_data 的函数和调用栈，不要写请求脚本",
+    "should_trigger": false
+  },
+  {
+    "query": "把这个 Akamai collector 做 AST 解混淆和控制流还原",
+    "should_trigger": false
+  },
+  {
+    "query": "维护一个老 Akamai 1.75 Go generator，让它继续支持旧站点",
+    "should_trigger": false
+  },
+  {
+    "query": "已确认 Akamai 且已经知道 JS 入口，只要把这个函数改成紧凑 Python + iv8 调用脚本，不做完整 _abck 协议分析",
+    "should_trigger": false
+  },
+  {
+    "query": "我只想对 SBSD JS 插 traceArray 看 getCc/getCgs/setCv，不需要你写 Python 协议或回放业务接口",
+    "should_trigger": false
+  },
+  {
+    "query": "帮我写一个 hook fetch、XHR 和 document.cookie 的控制台脚本",
+    "should_trigger": false
+  },
+  {
+    "query": "帮我定位 JS 里的 sign 生成函数和调用栈",
+    "should_trigger": false
+  },
+  {
+    "query": "把这段 _0x 开头的 JavaScript 做 AST 解混淆",
+    "should_trigger": false
+  },
+  {
+    "query": "用 iv8 执行京东 h5st 并用 requests 发包",
+    "should_trigger": false
+  },
+  {
+    "query": "这是 Akamai 滑块验证码，帮我识别缺口并提交 verify",
+    "should_trigger": false
+  },
+  {
+    "query": "给我一个 Selenium 自动过 Akamai 的脚本",
+    "should_trigger": false
+  },
+  {
+    "query": "目标有 ak_bmsc 与 /akam/13/pixel，collector POST sensor_data 后更新 _abck，请恢复业务 GET",
+    "should_trigger": true
+  },
+  {
+    "query": "_abck、bm_sz 和随机同源脚本都已确认，第二轮 sensor 比浏览器短很多，帮我修本地 lifecycle",
+    "should_trigger": true
+  },
+  {
+    "query": "twayair 有 bm_s/ak_bmsc 和随机 collector，sensor 200 但 chooseItinerary Access Denied，要浏览器外 Python 协议",
+    "should_trigger": true
+  },
+  {
+    "query": "别人给的 akamai js_reverse_cache 指纹缓存，我电脑跑不通，帮我按本机重采并跑通",
+    "should_trigger": true
+  },
+  {
+    "query": "用 Edge MCP 打开德威让我手动查票，你只抓包分析",
+    "should_trigger": false
+  },
+  {
+    "query": "给德威写一个 Playwright 自动点查询的脚本就行",
+    "should_trigger": false
+  }
+]

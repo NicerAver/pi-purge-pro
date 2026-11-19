@@ -1,0 +1,7 @@
+interface:
+  display_name: "Trace"
+  short_description: "Web reverse core plus Hook, AST, env, and pure-Python rebuild methods"
+  default_prompt: "Use $trace to route the task first: unknown or multi-layer collectors use the core workflow, paste-ready observation uses the browser-hook profile, structured source restoration uses the AST profile, known-entry Node/VM execution uses the env-patch profile, and fixed-trace-proved signer/decoder maintenance uses the core pure-Python rebuild method. For a live target, collect paired browser evidence sequentially with a capability snapshot. For artifact-only work, stay offline and report which live surfaces remain unproven."
+
+policy:
+  allow_implicit_invocation: true

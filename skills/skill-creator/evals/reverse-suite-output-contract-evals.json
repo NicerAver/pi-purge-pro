@@ -1,0 +1,89 @@
+{
+  "description": "Small real-model output-contract evals for the reverse-engineering skill suite. These prompts ask for routing/stage gates only; they do not require stable target website samples.",
+  "cases": [
+    {
+      "id": "trace-unknown-multilayer",
+      "query": "未知站点有动态 cookie、x-sign、响应解密和分页状态，最终要 browser-free Python collector。先只输出阶段门，不执行取证。",
+      "expected_skill": "trace",
+      "must_include": ["MODE", "OWNER", "NEXT_GATE", "DO_NOT_USE", "REQUIRED_EVIDENCE", "trace"],
+      "must_not_include": ["Playwright 作为最终", "浏览器自动化作为最终"]
+    },
+    {
+      "id": "trace-entry-location",
+      "query": "只需要定位 sign 函数、脚本 URL、initiator stack 和 JSVMP 读取的 navigator 字段。先只输出阶段门，不执行浏览器。",
+      "expected_skill": "trace",
+      "must_include": ["MODE", "OWNER", "NEXT_GATE", "REQUIRED_EVIDENCE", "trace", "Observe", "Capture"],
+      "must_not_include": ["env-patch", "Python + iv8"]
+    },
+    {
+      "id": "akamai-confirmed",
+      "query": "已确认 Akamai Bot Manager，已有 _abck、bm_sz、sensor_data POST 和 /akam/13/pixel 请求，要纯协议恢复。先只输出阶段门。",
+      "expected_skill": "akamai-protocol-reverse",
+      "must_include": ["MODE", "OWNER", "NEXT_GATE", "REQUIRED_EVIDENCE", "akamai-protocol-reverse", "_abck", "sensor_data"],
+      "must_not_include": ["OWNER: captcha-reverse", "browser automation final"]
+    },
+    {
+      "id": "captcha-protocol",
+      "query": "极验 GT4 load 到 verify，包含 lot_number、pow_detail、w、图片和滑动轨迹，帮我做本地协议回放。先只输出阶段门。",
+      "expected_skill": "captcha-reverse",
+      "must_include": ["MODE", "OWNER", "NEXT_GATE", "REQUIRED_EVIDENCE", "captcha-reverse", "verify"],
+      "must_not_include": ["OWNER: captcha-vision", "只做 OCR"]
+    },
+    {
+      "id": "skill-checkpoint-fields",
+      "query": "captcha-reverse 的 skill_checkpoint 只要主机、路径、家族和下一步动作。先只输出阶段门，不改文件。",
+      "expected_skill": "skill-creator",
+      "must_include": ["MODE", "OWNER", "NEXT_GATE", "skill-creator", "checkpoint"],
+      "must_not_include": ["OWNER: captcha-reverse", "OWNER: trace"]
+    },
+    {
+      "id": "captcha-vision-only",
+      "query": "GT4 九宫格识别模型训练，目标产物 best.pt、ONNX 和 fresh 通过率统计；不要恢复 /load /verify 协议。先只输出阶段门。",
+      "expected_skill": "captcha-vision",
+      "must_include": ["MODE", "OWNER", "NEXT_GATE", "captcha-vision", "best.pt", "ONNX"],
+      "must_not_include": ["恢复 /load", "生成 w"]
+    },
+    {
+      "id": "iv8-explicit",
+      "query": "明确用 Python + iv8 跑浏览器 JS 生成 cookie 和最终 URL，再用同一个 requests.Session 请求接口。先只输出阶段门。",
+      "expected_skill": "iv8-web-reverse",
+      "must_include": ["MODE", "OWNER", "NEXT_GATE", "iv8-web-reverse", "Python + iv8", "requests.Session"],
+      "must_not_include": ["OWNER: trace", "OWNER: captcha-reverse"]
+    },
+    {
+      "id": "skill-creator-audit",
+      "query": "做一次 OpenCode skill-set audit：检查触发边界、description 和 eval 覆盖，先只输出阶段门，不运行基准。",
+      "expected_skill": "skill-creator",
+      "must_include": ["MODE", "OWNER", "NEXT_GATE", "skill-creator", "eval"],
+      "must_not_include": ["OWNER: trace", "OWNER: captcha-reverse"]
+    },
+    {
+      "id": "complex-env-iv8-gate",
+      "query": "入口函数已知，JS 会在页面生命周期里读取 document.cookie 和 localStorage，启动 timer 后通过 fetch 改写请求 URL，还会检查 Function.prototype.toString；没有指定执行后端。先只输出阶段门。",
+      "expected_skill": "trace",
+      "must_include": ["MODE", "OWNER", "NEXT_GATE", "trace", "iv8", "复杂"],
+      "must_not_include": ["先用 Node", "Node.js 试跑"]
+    },
+    {
+      "id": "ordinary-react-none",
+      "query": "审查这个 React 项目的结算逻辑，找业务 bug 并补单元测试，不涉及 OpenCode skill。先只输出阶段门。",
+      "expected_skill": "none",
+      "must_include": ["MODE", "OWNER", "NEXT_GATE"],
+      "must_not_include": ["OWNER: trace", "OWNER: captcha-reverse", "OWNER: skill-creator"]
+    },
+    {
+      "id": "wmpf-stage-gate",
+      "query": "PC 微信小程序下单接口的签名参数想抓入口，目前只知道小程序名称。请只给阶段门，不要启动调试服务、不枚举 target、不取证。",
+      "expected_skill": "wechat-miniapp-reverse",
+      "must_include": [
+        "MODE",
+        "OWNER",
+        "NEXT_GATE",
+        "REQUIRED_EVIDENCE",
+        "DO_NOT_USE",
+        "wechat-miniapp-reverse"
+      ],
+      "must_not_include": ["chrome-devtools", "Camoufox"]
+    }
+  ]
+}

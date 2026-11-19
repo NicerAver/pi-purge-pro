@@ -1,0 +1,12 @@
+{
+  "method": "POST",
+  "url": "https://www.ouyeel.com/search-ng/commoditySearch/queryCommodityResult?K5nOZLud=3CK4AGlqEJM8uJXNSMXhYCdOLcADgcfKZhVym7c1RR8cqd_HM2o8EW2eYxCjM2.UUu9sA4EAGUyphrlIrIVToY_e5kSPM1Ar",
+  "headers": [
+    [
+      "content-type",
+      "application/x-www-form-urlencoded"
+    ]
+  ],
+  "body": "criteriaJson=%7B%22pageSize%22%3A50%2C%22industryComponent%22%3Anull%2C%22channel%22%3Anull%2C%22productType%22%3Anull%2C%22sort%22%3Anull%2C%22warehouseCode%22%3Anull%2C%22key_search%22%3Anull%2C%22is_central%22%3Anull%2C%22searchField%22%3Anull%2C%22companyCode%22%3Anull%2C%22inquiryCategory%22%3Anull%2C%22inquirySpec%22%3Anull%2C%22provider%22%3Anull%2C%22shopCode%22%3A%22SCDPT37420601%22%2C%22packCodes%22%3Anull%2C%22steelFactory%22%3Anull%2C%22resourceIds%22%3Anull%2C%22providerCode%22%3Anull%2C%22jsonParam%22%3A%7B%22productType%22%3A%22%22%2C%22keywordAnalyseResult%22%3Anull%7D%2C%22excludeShowSoldOut%22%3Anull%2C%22pageIndex%22%3A0%2C%22maxPage%22%3A50%7D",
+  "cookieHeader": "T0k1m0u5AfREP=mLUoeyw.pTWzSme3b5CPA3M5gTzeHfWlQQOQZnNJtpRb0WhG8hlUw.nP6LumAlv7rnecUE1aubplr1W7JOWfAiyWfgk60ySJcdRxrYiqS9ti5aU3gfWHdL3QHyafujITr1VyZ6H70ve3WA1Omxc8UWdVhhfqukVF.j.91SWomFO1pUekDrZXHfcovsRznUXQ8vR.ETLeiWaBsOdoPqcYButMO5hc2E0Tw3RUnr1ox2L"
+}
